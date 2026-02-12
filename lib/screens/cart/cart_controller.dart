@@ -7,6 +7,13 @@ class CartController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
   var cartItems = <CartItem>[].obs;
   var totalPrice = 0.0.obs;
+  double get subtotal => totalPrice.value;
+
+  double get discount => 5.55;
+
+  double get deliveryFee => 5.00;
+
+  double get total => subtotal - discount + deliveryFee;
 
   @override
   void onInit() {

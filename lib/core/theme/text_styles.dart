@@ -4,6 +4,7 @@ import 'app_colors.dart';
 class TextStyles {
   // Headlines
   static TextStyle headlineLarge = const TextStyle(
+    fontFamily: 'baloo-bhai-Regular',
     fontSize: 32,
     fontWeight: FontWeight.bold,
     color: AppColors.textColorPrimary,

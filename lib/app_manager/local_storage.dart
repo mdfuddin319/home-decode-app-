@@ -1,4 +1,5 @@
 import 'package:get_storage/get_storage.dart';
+import '../core/models/product_model.dart';
 
 class LocalStorage {
   static final box = GetStorage();
@@ -153,6 +154,35 @@ class LocalStorage {
     } catch (e) {
       print('Error clearing wishlist: $e');
       return false;
+    }
+  }
+
+  // Updated Wishlist Methods for Product objects
+  static Future<bool> saveWishlist(List<Product> wishlist) async {
+    try {
+      final List<Map<String, dynamic>> wishlistJson = wishlist
+          .map((product) => product.toJson())
+          .toList();
+      await box.write(_wishlistItems, wishlistJson);
+      return true;
+    } catch (e) {
+      print('Error saving wishlist: $e');
+      return false;
+    }
+  }
+
+  static Future<List<Product>> getWishlist() async {
+    try {
+      final List<dynamic>? wishlistJson = box.read(_wishlistItems);
+      if (wishlistJson == null) return [];
+
+      final List<Product> wishlist = wishlistJson
+          .map((json) => Product.fromJson(json as Map<String, dynamic>))
+          .toList();
+      return wishlist;
+    } catch (e) {
+      print('Error getting wishlist: $e');
+      return [];
     }
   }
 

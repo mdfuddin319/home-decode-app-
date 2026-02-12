@@ -2,6 +2,8 @@ part of 'app_pages.dart';
 
 abstract class AppRoutes {
   static const String initial = '/';
+  static const String splash = '/splash';
+  static const String onboarding = '/onboarding';
   static const String home = '/home';
   static const String product = '/product';
   static const String productDetails = '/product-details';

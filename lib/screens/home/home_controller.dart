@@ -10,6 +10,8 @@ class HomeController extends BaseController {
   var categories = <String>[].obs;
   var currentIndex = 0.obs;
   var cartItemCount = 0.obs;
+  var searchQuery = ''.obs;
+  var selectedIndex = 0.obs;
 
   @override
   void onInit() {
@@ -48,5 +50,39 @@ class HomeController extends BaseController {
 
   void updateCartCount(int count) {
     cartItemCount.value = count;
+  }
+
+  void performSearch(String query) {
+    searchQuery.value = query;
+    // Filter products based on search query
+    if (query.isEmpty) {
+      loadProducts(); // Reload all products
+    } else {
+      // Filter products by name or category
+      List<Product> filteredProducts = products.where((product) {
+        return product.name.toLowerCase().contains(query.toLowerCase()) ||
+            product.category.toLowerCase().contains(query.toLowerCase());
+      }).toList();
+
+      products.assignAll(filteredProducts);
+    }
+  }
+
+  void selectCategory(int index) {
+    selectedIndex.value = index;
+    if (index == 0) {
+      // If first category is selected, show all products
+      loadProducts();
+    } else {
+      // Filter products by selected category
+      String selectedCategory = categories[index];
+      List<Product> filteredProducts = products.where((product) {
+        return product.category.toLowerCase().contains(
+          selectedCategory.toLowerCase(),
+        );
+      }).toList();
+
+      products.assignAll(filteredProducts);
+    }
   }
 }

@@ -21,6 +21,7 @@ class AppStrings {
   static const String profile = 'Profile';
   static const String settings = 'Settings';
   static const String help = 'Help & Support';
+  static const String search = 'Search';
 
   // Buttons
   static const String submit = 'Submit';
