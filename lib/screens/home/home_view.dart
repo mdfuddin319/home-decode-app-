@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/values/app_strings.dart';
@@ -428,6 +430,267 @@ class HomeView extends StatelessWidget {
                               },
                             ),
                           ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        // Promotional Section: Banners + Auto Carousel
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Left side: Stacked promotional banners
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  // First Promotional Banner Card
+                                  Container(
+                                    height: 200,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          AppColors.primaryColor.withOpacity(
+                                            0.8,
+                                          ),
+                                          AppColors.primaryColor.withOpacity(
+                                            0.5,
+                                          ),
+                                        ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: AppColors.primaryColor
+                                              .withOpacity(0.2),
+                                          spreadRadius: 2,
+                                          blurRadius: 10,
+                                          offset: const Offset(0, 4),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        // Background pattern
+                                        Positioned(
+                                          right: -30,
+                                          bottom: -30,
+                                          child: Icon(
+                                            Icons.chair_rounded,
+                                            size: 120,
+                                            color: Colors.white.withOpacity(
+                                              0.1,
+                                            ),
+                                          ),
+                                        ),
+                                        // Promo content
+                                        Padding(
+                                          padding: const EdgeInsets.all(20.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Special Offer on EID',
+                                                    style: TextStyles.titleSmall
+                                                        .copyWith(
+                                                          color: Colors.white70,
+                                                          fontSize: 12,
+                                                        ),
+                                                  ),
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    'Get 30% Off',
+                                                    style: TextStyles
+                                                        .headlineSmall
+                                                        .copyWith(
+                                                          color: AppColors
+                                                              .whiteColor,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.toNamed('/product');
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor:
+                                                      AppColors.whiteColor,
+                                                  foregroundColor:
+                                                      AppColors.primaryColor,
+                                                  padding:
+                                                      const EdgeInsets.symmetric(
+                                                        horizontal: 16,
+                                                        vertical: 8,
+                                                      ),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          8,
+                                                        ),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  'Shop Now',
+                                                  style: TextStyles.bodySmall
+                                                      .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 11,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  // Second Promotional Banner Card
+                                  Container(
+                                    height: 200,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          const Color.fromARGB(
+                                            255,
+                                            7,
+                                            181,
+                                            255,
+                                          ).withOpacity(0.8),
+                                          const Color.fromARGB(
+                                            255,
+                                            7,
+                                            181,
+                                            255,
+                                          ).withOpacity(0.5),
+                                        ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: const Color.fromARGB(
+                                            255,
+                                            7,
+                                            181,
+                                            255,
+                                          ).withOpacity(0.2),
+                                          spreadRadius: 2,
+                                          blurRadius: 10,
+                                          offset: const Offset(0, 4),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Stack(
+                                      children: [
+                                        // Background pattern
+                                        Positioned(
+                                          right: -30,
+                                          bottom: -30,
+                                          child: Icon(
+                                            Icons.local_shipping,
+                                            size: 120,
+                                            color: Colors.white.withOpacity(
+                                              0.1,
+                                            ),
+                                          ),
+                                        ),
+                                        // Promo content
+                                        Padding(
+                                          padding: const EdgeInsets.all(20.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Free Delivery',
+                                                    style: TextStyles.titleSmall
+                                                        .copyWith(
+                                                          color: Colors.white70,
+                                                          fontSize: 12,
+                                                        ),
+                                                  ),
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    'On Orders Above 99',
+                                                    style: TextStyles
+                                                        .headlineSmall
+                                                        .copyWith(
+                                                          color: AppColors
+                                                              .whiteColor,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                              ElevatedButton(
+                                                onPressed: () {
+                                                  Get.toNamed('/product');
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor:
+                                                      AppColors.whiteColor,
+                                                  foregroundColor:
+                                                      const Color.fromARGB(
+                                                        255,
+                                                        7,
+                                                        181,
+                                                        255,
+                                                      ),
+                                                  padding:
+                                                      const EdgeInsets.symmetric(
+                                                        horizontal: 16,
+                                                        vertical: 8,
+                                                      ),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          8,
+                                                        ),
+                                                  ),
+                                                ),
+                                                child: Text(
+                                                  'Learn More',
+                                                  style: TextStyles.bodySmall
+                                                      .copyWith(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 11,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            // Right side: Auto-sliding carousel card
+                            Expanded(child: _buildAutoSlideCarouselCard()),
+                          ],
                         ),
 
                         const SizedBox(height: 20),
@@ -1010,6 +1273,127 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
               ),
+      ),
+    );
+  }
+
+  /// Auto-sliding promotional carousel card builder
+  Widget _buildAutoSlideCarouselCard() {
+    final pageController = PageController();
+    int currentPage = 0;
+
+    // Auto slide images every 3 seconds
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Timer.periodic(const Duration(seconds: 4), (timer) {
+        if (pageController.hasClients) {
+          currentPage++;
+          pageController.animateToPage(
+            currentPage % 4,
+            duration: const Duration(milliseconds: 800),
+            curve: Curves.easeInOut,
+          );
+        }
+      });
+    });
+
+    // Sample carousel images/products
+    final carouselItems = [
+      'assets/images/sofaone.jpg',
+      'assets/images/sofatwo.png',
+      'assets/images/sofathree.png',
+      'assets/images/sofafour.png',
+    ];
+
+    return Container(
+      height: 415, // Increased height for better carousel visibility
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        gradient: LinearGradient(
+          colors: [
+            const Color.fromARGB(255, 143, 200, 232),
+            AppColors.surfaceColor.withOpacity(0.8),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.greyColor.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          // Auto-sliding PageView
+          Expanded(
+            child: PageView.builder(
+              controller: pageController,
+              onPageChanged: (page) => currentPage = page,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.greyColor.withOpacity(0.1),
+                        blurRadius: 8,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      carouselItems[index % carouselItems.length],
+                      fit: BoxFit.cover,
+                      errorBuilder: (c, e, st) => Center(
+                        child: Icon(
+                          Icons.chair_rounded,
+                          size: 60,
+                          color: AppColors.greyColor.withOpacity(0.5),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          // Dot indicators
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                4,
+                (index) => GestureDetector(
+                  onTap: () {
+                    pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 600),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: currentPage % 4 == index
+                          ? AppColors.primaryColor
+                          : AppColors.greyColor.withOpacity(0.3),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
