@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import '../screens/sofa_screen/binding/sofa_binding.dart';
+import '../screens/sofa_screen/view/sofa_screen.dart';
 import '../screens/splash/splash_view.dart';
 import '../screens/splash/splash_binding.dart';
 import '../screens/onboarding/onboarding_view.dart';
@@ -52,6 +54,11 @@ abstract class AppPages {
       name: AppRoutes.wishlist,
       page: () => const WishlistView(),
       binding: WishlistBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.sofa,
+      page: () => const SofaView(),
+      binding: SofaBinding(),
     ),
   ];
 }

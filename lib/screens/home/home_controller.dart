@@ -5,6 +5,7 @@ import '../../apihelper/repositories/api_repository.dart';
 
 class HomeController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
+
   var products = <Product>[].obs;
   var featuredProducts = <Product>[].obs;
   var categories = <String>[].obs;
