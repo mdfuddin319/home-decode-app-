@@ -26,7 +26,7 @@ class HomeView extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
         ),
-        centerTitle: true,
+        //centerTitle: true,
         actions: [
           IconButton(
             icon: Stack(
@@ -1278,140 +1278,74 @@ class HomeView extends StatelessWidget {
                 ),
               ),
       ),
-    );
-  }
-
-  /// Auto-sliding promotional carousel card builder
-  Widget _buildAutoSlideCarouselCard() {
-    final pageController = PageController();
-    int currentPage = 0;
-
-    // Auto slide images every 3 seconds
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      Timer.periodic(const Duration(seconds: 2), (timer) {
-        if (pageController.hasClients) {
-          currentPage++;
-          pageController.animateToPage(
-            currentPage % 4,
-            duration: const Duration(milliseconds: 800),
-            curve: Curves.easeInOut,
-          );
-        }
-      });
-    });
-
-    // Sample carousel images/products
-    final carouselItems = [
-      'assets/images/sofaone.jpg',
-      'assets/images/sofatwo.png',
-      'assets/images/sofathree.png',
-      'assets/images/sofafour.png',
-    ];
-
-    return Container(
-      height: 415, // Increased height for better carousel visibility
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        gradient: LinearGradient(
-          colors: [
-            const Color.fromARGB(255, 143, 200, 232),
-            AppColors.surfaceColor.withOpacity(0.8),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.greyColor.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          // Auto-sliding PageView
-          Expanded(
-            child: PageView.builder(
-              controller: pageController,
-              onPageChanged: (page) => currentPage = page,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.greyColor.withOpacity(0.1),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      carouselItems[index % carouselItems.length],
-                      fit: BoxFit.cover,
-                      errorBuilder: (c, e, st) => Center(
-                        child: Icon(
-                          Icons.chair_rounded,
-                          size: 60,
-                          color: AppColors.greyColor.withOpacity(0.5),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          // Dot indicators
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                4,
-                (index) => GestureDetector(
-                  onTap: () {
-                    pageController.animateToPage(
-                      index,
-                      duration: const Duration(milliseconds: 600),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 4),
-                    width: 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: currentPage % 4 == index
-                          ? AppColors.primaryColor
-                          : AppColors.greyColor.withOpacity(0.3),
-                    ),
-                  ),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 8,
+        elevation: 12,
+        color: Colors.white,
+        child: SizedBox(
+          height: 55,
+          child: Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _navItem(
+                  icon: Icons.home_rounded,
+                  label: AppStrings.home,
+                  index: 0,
                 ),
-              ),
+                _navItem(
+                  icon: Icons.chair_alt_rounded,
+                  label: AppStrings.products,
+                  index: 1,
+                ),
+                const SizedBox(width: 10), // FAB Space
+                _navItem(
+                  icon: Icons.favorite_rounded,
+                  label: AppStrings.wishlist,
+                  index: 2,
+                ),
+                _navItem(
+                  icon: Icons.person_rounded,
+                  label: AppStrings.profile,
+                  index: 3,
+                ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
 
-  Widget navItem({
+  Widget _navItem({
     required IconData icon,
     required String label,
     required int index,
-    required HomeController controller,
   }) {
-    final isActive = controller.currentIndex.value == index;
+    final isActive = Get.find<HomeController>().currentIndex.value == index;
 
     return GestureDetector(
-      onTap: () => controller.changePageIndex(index),
+      onTap: () {
+        final controller = Get.find<HomeController>();
+        controller.changePageIndex(index);
+
+        // Navigate to the corresponding screen
+        switch (index) {
+          case 0:
+            Get.offAllNamed('/home');
+            break;
+          case 1:
+            Get.toNamed('/product');
+            break;
+          case 2:
+            Get.toNamed('/wishlist');
+            break;
+          case 3:
+            Get.toNamed('/profile');
+            break;
+        }
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -1419,23 +1353,23 @@ class HomeView extends StatelessWidget {
           color: isActive
               ? AppColors.primaryColor.withOpacity(0.12)
               : Colors.transparent,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
               icon,
-              size: 26,
+              size: 24,
               color: isActive
                   ? AppColors.primaryColor
                   : AppColors.textColorHint,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
             Text(
               label,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 11,
                 fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
                 color: isActive
                     ? AppColors.primaryColor
@@ -1447,27 +1381,192 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _imageFallback() {
-    return Center(
-      child: Icon(
-        Icons.chair,
-        size: 40,
-        color: AppColors.greyColor.withOpacity(0.6),
+/// Auto-sliding promotional carousel card builder
+Widget _buildAutoSlideCarouselCard() {
+  final pageController = PageController();
+  int currentPage = 0;
+
+  // Auto slide images every 3 seconds
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    Timer.periodic(const Duration(seconds: 2), (timer) {
+      if (pageController.hasClients) {
+        currentPage++;
+        pageController.animateToPage(
+          currentPage % 4,
+          duration: const Duration(milliseconds: 800),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  });
+
+  // Sample carousel images/products
+  final carouselItems = [
+    'assets/images/sofaone.jpg',
+    'assets/images/sofatwo.png',
+    'assets/images/sofathree.png',
+    'assets/images/sofafour.png',
+  ];
+
+  return Container(
+    height: 415, // Increased height for better carousel visibility
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      gradient: LinearGradient(
+        colors: [
+          const Color.fromARGB(255, 143, 200, 232),
+          AppColors.surfaceColor.withOpacity(0.8),
+        ],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
       ),
-    );
-  }
+      boxShadow: [
+        BoxShadow(
+          color: AppColors.greyColor.withOpacity(0.2),
+          spreadRadius: 2,
+          blurRadius: 12,
+          offset: const Offset(0, 4),
+        ),
+      ],
+    ),
+    child: Column(
+      children: [
+        // Auto-sliding PageView
+        Expanded(
+          child: PageView.builder(
+            controller: pageController,
+            onPageChanged: (page) => currentPage = page,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.greyColor.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    carouselItems[index % carouselItems.length],
+                    fit: BoxFit.cover,
+                    errorBuilder: (c, e, st) => Center(
+                      child: Icon(
+                        Icons.chair_rounded,
+                        size: 60,
+                        color: AppColors.greyColor.withOpacity(0.5),
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        // Dot indicators
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              4,
+              (index) => GestureDetector(
+                onTap: () {
+                  pageController.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 600),
+                    curve: Curves.easeInOut,
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: currentPage % 4 == index
+                        ? AppColors.primaryColor
+                        : AppColors.greyColor.withOpacity(0.3),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
 
-  IconData _getCategoryIcon(String category) {
-    final c = category.toLowerCase();
-    if (c.contains('sofa')) return Icons.weekend_rounded;
-    if (c.contains('bed')) return Icons.bed_rounded;
-    if (c.contains('table')) return Icons.table_chart_rounded;
-    if (c.contains('chair')) return Icons.chair_rounded;
-    if (c.contains('lamp') || c.contains('light') || c.contains('lighting'))
-      return Icons.lightbulb;
-    if (c.contains('cabinet') || c.contains('storage') || c.contains('shelf'))
-      return Icons.inventory_2_rounded;
-    return Icons.chair;
-  }
+Widget navItem({
+  required IconData icon,
+  required String label,
+  required int index,
+  required HomeController controller,
+}) {
+  final isActive = controller.currentIndex.value == index;
+
+  return GestureDetector(
+    onTap: () => controller.changePageIndex(index),
+    child: AnimatedContainer(
+      duration: const Duration(milliseconds: 250),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: isActive
+            ? AppColors.primaryColor.withOpacity(0.12)
+            : Colors.transparent,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 26,
+            color: isActive ? AppColors.primaryColor : AppColors.textColorHint,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+              color: isActive
+                  ? AppColors.primaryColor
+                  : AppColors.textColorHint,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget _imageFallback() {
+  return Center(
+    child: Icon(
+      Icons.chair,
+      size: 40,
+      color: AppColors.greyColor.withOpacity(0.6),
+    ),
+  );
+}
+
+IconData _getCategoryIcon(String category) {
+  final c = category.toLowerCase();
+  if (c.contains('sofa')) return Icons.weekend_rounded;
+  if (c.contains('bed')) return Icons.bed_rounded;
+  if (c.contains('table')) return Icons.table_chart_rounded;
+  if (c.contains('chair')) return Icons.chair_rounded;
+  if (c.contains('lamp') || c.contains('light') || c.contains('lighting'))
+    return Icons.lightbulb;
+  if (c.contains('cabinet') || c.contains('storage') || c.contains('shelf'))
+    return Icons.inventory_2_rounded;
+  return Icons.chair;
 }

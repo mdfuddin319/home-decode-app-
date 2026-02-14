@@ -16,4 +16,5 @@ abstract class AppRoutes {
   static const String orderConfirmation = '/order-confirmation';
   static const String search = '/search';
   static const String category = '/category';
+  static const String sofa = '/sofa';
 }
