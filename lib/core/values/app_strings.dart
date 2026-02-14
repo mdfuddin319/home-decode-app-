@@ -1,6 +1,6 @@
 class AppStrings {
   // App Name
-  static const String appName = 'HomelyTouch';
+  static const String appName = 'Homely Touch';
 
   // Authentication
   static const String login = 'Login';
