@@ -126,14 +126,17 @@ class SplashView extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Obx(() {
         if (controller.isVideoInitialized.value) {
-          return Center(
-            child: AspectRatio(
-              aspectRatio: controller.videoPlayerController.value.aspectRatio,
-              child: VideoPlayer(controller.videoPlayerController),
+          return SizedBox.expand(
+            child: FittedBox(
+              fit: BoxFit.cover, // 👈 Screen fill karega
+              child: SizedBox(
+                width: controller.videoPlayerController.value.size.width,
+                height: controller.videoPlayerController.value.size.height,
+                child: VideoPlayer(controller.videoPlayerController),
+              ),
             ),
           );
         } else {
-          // Optional blank/loader while video initializes
           return const Center(
             child: CircularProgressIndicator(color: AppColors.primaryColor),
           );
