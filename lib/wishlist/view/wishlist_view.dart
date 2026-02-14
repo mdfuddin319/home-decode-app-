@@ -5,7 +5,7 @@ import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
 import '../../../core/values/app_strings.dart';
 import '../../../core/models/product_model.dart';
-import '../controller/wishlist_controller.dart';
+
 
 class WishlistView extends StatelessWidget {
   const WishlistView({Key? key}) : super(key: key);

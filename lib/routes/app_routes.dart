@@ -9,6 +9,7 @@ abstract class AppRoutes {
   static const String productDetails = '/product-details';
   static const String cart = '/cart';
   static const String wishlist = '/wishlist';
+  static const String sofa = '/sofa';
   static const String profile = '/profile';
   static const String login = '/login';
   static const String register = '/register';
