@@ -20,23 +20,34 @@ class CategoryCard extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          // Image Container
-          Container(
-            height: 140,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.greyColor.withOpacity(0.15),
-                  spreadRadius: 1,
-                  blurRadius: 5,
-                  offset: const Offset(0, 2),
+          // Image Container — responsive (use AspectRatio so it fits grid cells)
+          AspectRatio(
+            aspectRatio: 1, // square image that scales to available width
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.greyColor.withOpacity(0.15),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  imagePath,
+                  fit: BoxFit.cover,
+                  errorBuilder: (c, e, st) => Center(
+                    child: Icon(
+                      Icons.chair,
+                      color: AppColors.greyColor.withOpacity(0.6),
+                    ),
+                  ),
                 ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.asset(imagePath, fit: BoxFit.cover),
+              ),
             ),
           ),
           const SizedBox(height: 10),

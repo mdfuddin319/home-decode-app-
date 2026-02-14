@@ -13,13 +13,12 @@ class WishlistController extends BaseController {
     super.onInit();
     loadWishlist();
   }
-
-  void loadWishlist() async {
+  Future<void> loadWishlist() async {
     try {
       isLoading.value = true;
-      final List<int> savedWishlistIds = LocalStorage.getWishlistItems();
-      // In a real app, you'd fetch full Product objects by IDs from API
-      // For now, we'll keep the wishlistItems updated via addToWishlist/removeFromWishlist
+      // Prefer stored Product objects (newer storage API)
+      final saved = await LocalStorage.getWishlist();
+      wishlistItems.assignAll(saved);
     } catch (e) {
       setError(e.toString());
     } finally {
@@ -27,13 +26,12 @@ class WishlistController extends BaseController {
     }
   }
 
-  void addToWishlist(Product product) async {
+  Future<void> addToWishlist(Product product) async {
     try {
-      final updatedWishlist = List<Product>.from(wishlistItems);
-      updatedWishlist.add(product);
-      final productIds = updatedWishlist.map((p) => p.id).toList();
-      await LocalStorage.setWishlistItems(productIds);
-      wishlistItems.assignAll(updatedWishlist);
+      if (isInWishlist(product)) return;
+      final updatedWishlist = List<Product>.from(wishlistItems)..add(product);
+      final ok = await LocalStorage.saveWishlist(updatedWishlist);
+      if (ok) wishlistItems.assignAll(updatedWishlist);
       Get.snackbar(
         'Added to Wishlist',
         '${product.name} has been added to your wishlist',
@@ -53,14 +51,11 @@ class WishlistController extends BaseController {
     }
   }
 
-  void removeFromWishlist(Product product) async {
+  Future<void> removeFromWishlist(Product product) async {
     try {
-      final updatedWishlist = List<Product>.from(
-        wishlistItems,
-      ).where((item) => item.id != product.id).toList();
-      final productIds = updatedWishlist.map((p) => p.id).toList();
-      await LocalStorage.setWishlistItems(productIds);
-      wishlistItems.assignAll(updatedWishlist);
+      final updatedWishlist = wishlistItems.where((item) => item.id != product.id).toList();
+      final ok = await LocalStorage.saveWishlist(updatedWishlist);
+      if (ok) wishlistItems.assignAll(updatedWishlist);
       Get.snackbar(
         'Removed from Wishlist',
         '${product.name} has been removed from your wishlist',
@@ -92,9 +87,9 @@ class WishlistController extends BaseController {
     return wishlistItems.any((item) => item.id == product.id);
   }
 
-  void clearWishlist() async {
+  Future<void> clearWishlist() async {
     try {
-      await LocalStorage.setWishlistItems([]);
+      await LocalStorage.clearWishlist();
       wishlistItems.clear();
       Get.snackbar(
         'Wishlist Cleared',
@@ -113,7 +108,7 @@ class WishlistController extends BaseController {
         colorText: Colors.white,
       );
     }
-  }}
+  }
 
   double get totalWishlistValue {
     return wishlistItems.fold(0.0, (sum, item) => sum + item.price);
