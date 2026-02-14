@@ -1319,68 +1319,70 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
-}
 
-Widget _navItem({
-  required IconData icon,
-  required String label,
-  required int index,
-}) {
-  final isActive = Get.find<HomeController>().currentIndex.value == index;
+  Widget _navItem({
+    required IconData icon,
+    required String label,
+    required int index,
+  }) {
+    final isActive = Get.find<HomeController>().currentIndex.value == index;
 
-  return GestureDetector(
-    onTap: () {
-      final controller = Get.find<HomeController>();
-      controller.changePageIndex(index);
+    return GestureDetector(
+      onTap: () {
+        final controller = Get.find<HomeController>();
+        controller.changePageIndex(index);
 
-      // Navigate to the corresponding screen
-      switch (index) {
-        case 0:
-          Get.offAllNamed('/home');
-          break;
-        case 1:
-          Get.toNamed('/product');
-          break;
-        case 2:
-          Get.toNamed('/wishlist');
-          break;
-        case 3:
-          Get.toNamed('/profile');
-          break;
-      }
-    },
-    child: AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      decoration: BoxDecoration(
-        color: isActive
-            ? AppColors.primaryColor.withOpacity(0.12)
-            : Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            size: 24,
-            color: isActive ? AppColors.primaryColor : AppColors.textColorHint,
-          ),
-          const SizedBox(height: 2),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 11,
-              fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+        // Navigate to the corresponding screen
+        switch (index) {
+          case 0:
+            Get.offAllNamed('/home');
+            break;
+          case 1:
+            Get.toNamed('/product');
+            break;
+          case 2:
+            Get.toNamed('/wishlist');
+            break;
+          case 3:
+            Get.toNamed('/profile');
+            break;
+        }
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        decoration: BoxDecoration(
+          color: isActive
+              ? AppColors.primaryColor.withOpacity(0.12)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 24,
               color: isActive
                   ? AppColors.primaryColor
                   : AppColors.textColorHint,
             ),
-          ),
-        ],
+            const SizedBox(height: 2),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+                color: isActive
+                    ? AppColors.primaryColor
+                    : AppColors.textColorHint,
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 /// Auto-sliding promotional carousel card builder
@@ -1541,6 +1543,34 @@ Widget navItem({
                   ? AppColors.primaryColor
                   : AppColors.textColorHint,
             ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget _imageFallback() {
+  return Center(
+    child: Icon(
+      Icons.chair,
+      size: 40,
+      color: AppColors.greyColor.withOpacity(0.6),
+    ),
+  );
+}
+
+IconData _getCategoryIcon(String category) {
+  final c = category.toLowerCase();
+  if (c.contains('sofa')) return Icons.weekend_rounded;
+  if (c.contains('bed')) return Icons.bed_rounded;
+  if (c.contains('table')) return Icons.table_chart_rounded;
+  if (c.contains('chair')) return Icons.chair_rounded;
+  if (c.contains('lamp') || c.contains('light') || c.contains('lighting'))
+    return Icons.lightbulb;
+  if (c.contains('cabinet') || c.contains('storage') || c.contains('shelf'))
+    return Icons.inventory_2_rounded;
+  return Icons.chair;
           ),
         ],
       ),

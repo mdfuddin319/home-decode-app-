@@ -44,14 +44,14 @@ abstract class AppPages {
       binding: CartBinding(),
     ),
     GetPage(
-      name: AppRoutes.sofa,
-      page: () => const SofaView(),
-      binding: SofaBinding(),
-    ),
-    GetPage(
       name: AppRoutes.wishlist,
       page: () => const WishlistView(),
       binding: WishlistBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.sofa,
+      page: () => const SofaView(),
+      binding: SofaBinding(),
     ),
   ];
 }
