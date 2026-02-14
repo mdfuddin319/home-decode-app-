@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import '../../core/values/app_strings.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/text_styles.dart';
+import '../product/product_view.dart';
+import '../wishlist/view/wishlist_view.dart';
 import 'home_controller.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,6 +13,13 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HomeController controller = Get.find<HomeController>();
+
+    final List<Widget> pages = [
+      const HomeView(),
+      const ProductView(),
+      const WishlistView(),
+      // const  ProfileView(),
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +31,7 @@ class HomeView extends StatelessWidget {
             color: AppColors.primaryColor,
           ),
         ),
-        centerTitle: true,
+        // centerTitle: true,
         actions: [
           IconButton(
             icon: Stack(
@@ -165,12 +174,12 @@ class HomeView extends StatelessWidget {
 
                       SizedBox(
                         height: 60,
-                        child: Obx(
-                          () => ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: controller.categories.length,
-                            itemBuilder: (context, index) {
-                              bool isSelected =
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: controller.categories.length,
+                          itemBuilder: (context, index) {
+                            return Obx(() {
+                              final isSelected =
                                   controller.selectedIndex.value == index;
                               return GestureDetector(
                                 onTap: () {
@@ -241,8 +250,8 @@ class HomeView extends StatelessWidget {
                                   ),
                                 ),
                               );
-                            },
-                          ),
+                            });
+                          },
                         ),
                       ),
 
@@ -629,7 +638,7 @@ class HomeView extends StatelessWidget {
         elevation: 12,
         color: Colors.white,
         child: SizedBox(
-          height: 50,
+          height: 55,
           child: Obx(
             () => Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -638,26 +647,22 @@ class HomeView extends StatelessWidget {
                   icon: Icons.home_rounded,
                   label: AppStrings.home,
                   index: 0,
-                  controller: controller,
                 ),
                 _navItem(
                   icon: Icons.chair_alt_rounded,
                   label: AppStrings.products,
                   index: 1,
-                  controller: controller,
                 ),
-                const SizedBox(width: 10), // Space for FAB notch
+                const SizedBox(width: 10), // FAB Space
                 _navItem(
                   icon: Icons.favorite_rounded,
                   label: AppStrings.wishlist,
                   index: 2,
-                  controller: controller,
                 ),
                 _navItem(
                   icon: Icons.person_rounded,
                   label: AppStrings.profile,
                   index: 3,
-                  controller: controller,
                 ),
               ],
             ),
@@ -671,12 +676,30 @@ class HomeView extends StatelessWidget {
     required IconData icon,
     required String label,
     required int index,
-    required HomeController controller,
   }) {
-    final isActive = controller.currentIndex.value == index;
+    final isActive = Get.find<HomeController>().currentIndex.value == index;
 
     return GestureDetector(
-      onTap: () => controller.changePageIndex(index),
+      onTap: () {
+        final controller = Get.find<HomeController>();
+        controller.changePageIndex(index);
+
+        // Navigate to the corresponding screen
+        switch (index) {
+          case 0:
+            Get.offAllNamed('/home');
+            break;
+          case 1:
+            Get.toNamed('/sofa');
+            break;
+          case 2:
+            Get.toNamed('/wishlist');
+            break;
+          case 3:
+            Get.toNamed('/profile');
+            break;
+        }
+      },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -684,23 +707,23 @@ class HomeView extends StatelessWidget {
           color: isActive
               ? AppColors.primaryColor.withOpacity(0.12)
               : Colors.transparent,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(18),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Icon(
               icon,
-              size: 26,
+              size: 24,
               color: isActive
                   ? AppColors.primaryColor
                   : AppColors.textColorHint,
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 2),
             Text(
               label,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 11,
                 fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
                 color: isActive
                     ? AppColors.primaryColor
@@ -712,24 +735,24 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
+}
 
-  IconData _getCategoryIcon(String category) {
-    switch (category.toLowerCase()) {
-      case 'sofas':
-        return Icons.chair_alt_outlined;
-      case 'chairs':
-        return Icons.chair_outlined;
-      case 'tables':
-        return Icons.table_restaurant_outlined;
-      case 'beds':
-        return Icons.bedroom_parent_outlined;
-      case 'storage':
-        return Icons.storage_outlined;
-      case 'lighting':
-        return Icons.lightbulb_outline;
-      default:
-        return Icons.category_outlined;
-    }
+IconData _getCategoryIcon(String category) {
+  switch (category.toLowerCase()) {
+    case 'sofas':
+      return Icons.chair_alt_outlined;
+    case 'chairs':
+      return Icons.chair_outlined;
+    case 'tables':
+      return Icons.table_restaurant_outlined;
+    case 'beds':
+      return Icons.bedroom_parent_outlined;
+    case 'storage':
+      return Icons.storage_outlined;
+    case 'lighting':
+      return Icons.lightbulb_outline;
+    default:
+      return Icons.category_outlined;
   }
 }
 
