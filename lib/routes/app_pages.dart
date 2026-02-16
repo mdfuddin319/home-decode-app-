@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:home_decor_app/screens/lighting_screen/binding/lighting_binding.dart';
+import 'package:home_decor_app/screens/lighting_screen/view/lighting_view.dart';
 import 'package:home_decor_app/screens/onboarding/onboarding_binding.dart';
 import 'package:home_decor_app/screens/onboarding/onboarding_view.dart';
 import '../screens/home/home_view.dart';
@@ -52,6 +54,11 @@ abstract class AppPages {
       name: AppRoutes.sofa,
       page: () => const SofaView(),
       binding: SofaBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.lighting,
+      page: () => const LightingView(),
+      binding: LightingBinding(),
     ),
   ];
 }

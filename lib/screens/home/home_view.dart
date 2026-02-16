@@ -175,16 +175,20 @@ class HomeView extends StatelessWidget {
 
                         SizedBox(
                           height: 60,
-                          child: Obx(
-                            () => ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: controller.categories.length,
-                              itemBuilder: (context, index) {
-                                bool isSelected =
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: controller.categories.length,
+                            itemBuilder: (context, index) {
+                              return Obx(() {
+                                final isSelected =
                                     controller.selectedIndex.value == index;
+                                final category = controller.categories[index];
+
                                 return GestureDetector(
                                   onTap: () {
                                     controller.selectCategory(index);
+                                    // Navigate based on category
+                                    _navigateToCategory(category);
                                   },
                                   child: Container(
                                     margin: const EdgeInsets.only(right: 12),
@@ -227,9 +231,7 @@ class HomeView extends StatelessWidget {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Icon(
-                                            _getCategoryIcon(
-                                              controller.categories[index],
-                                            ),
+                                            _getCategoryIcon(category),
                                             color: isSelected
                                                 ? AppColors.whiteColor
                                                 : AppColors.primaryColor,
@@ -237,7 +239,7 @@ class HomeView extends StatelessWidget {
                                           ),
                                           const SizedBox(width: 6),
                                           Text(
-                                            controller.categories[index],
+                                            category,
                                             style: TextStyle(
                                               color: isSelected
                                                   ? AppColors.whiteColor
@@ -251,8 +253,8 @@ class HomeView extends StatelessWidget {
                                     ),
                                   ),
                                 );
-                              },
-                            ),
+                              });
+                            },
                           ),
                         ),
 
@@ -1569,4 +1571,27 @@ IconData _getCategoryIcon(String category) {
   if (c.contains('cabinet') || c.contains('storage') || c.contains('shelf'))
     return Icons.inventory_2_rounded;
   return Icons.chair;
+}
+
+/// Navigate to category-specific screen
+void _navigateToCategory(String category) {
+  final categoryLower = category.toLowerCase();
+
+  if (categoryLower.contains('sofa')) {
+    Get.toNamed('/sofa');
+  } else if (categoryLower.contains('table')) {
+    Get.toNamed('/product', arguments: {'category': 'tables'});
+  } else if (categoryLower.contains('chair')) {
+    Get.toNamed('/sofa'); // Navigate to sofa as fallback
+  } else if (categoryLower.contains('bed')) {
+    Get.toNamed('/product', arguments: {'category': 'beds'});
+  } else if (categoryLower.contains('storage')) {
+    Get.toNamed('/product', arguments: {'category': 'storage'});
+  } else if (categoryLower.contains('lighting') ||
+      categoryLower.contains('lamp')) {
+    Get.toNamed('/lighting', arguments: {'category': 'lighting'});
+  } else {
+    // Default: navigate to sofa screen
+    Get.toNamed('/home');
+  }
 }
