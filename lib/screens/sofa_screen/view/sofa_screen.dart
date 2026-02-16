@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_decor_app/screens/sofa_screen/view/widget/SuggestedSection.dart';
+import 'package:home_decor_app/screens/sofa_screen/view/widget/luxurysuggestion.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
-import '../../../core/models/product_model.dart';
 import '../controller/sofa_controller.dart';
+import 'widget/modernSuggestion.dart';
 
 class SofaView extends StatelessWidget {
   const SofaView({Key? key}) : super(key: key);
@@ -34,31 +36,83 @@ class SofaView extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          // Header Section
-          _buildHeader(controller),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Header Section
+            _buildHeader(controller),
 
-          // Filter Chips
-          _buildFilterChips(controller),
+            // Filter Chips
+            _buildFilterChips(controller),
 
-          // Products Grid
-          Expanded(
-            child: Obx(
-              () => controller.isLoading.value
-                  ? const Center(
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          AppColors.primaryColor,
+            const SizedBox(height: 10),
+            // Featured Products
+            // ⭐ Banner Slider
+            SizedBox(
+              height: 160,
+              child: PageView.builder(
+                controller: controller.featurePageController,
+                itemCount: controller.featureBanners.length,
+                onPageChanged: (index) {
+                  controller.currentFeatureIndex.value = index;
+                },
+                itemBuilder: (context, index) {
+                  final banner = controller.featureBanners[index];
+
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        image: DecorationImage(
+                          image: NetworkImage(banner["image"]!),
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    )
-                  : controller.sofaProducts.isEmpty
-                  ? _buildEmptyState()
-                  : _buildProductGrid(controller),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: Colors.black.withOpacity(0.3),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              banner["title"]!,
+                              style: TextStyles.titleLarge.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              banner["desc"]!,
+                              style: TextStyles.bodySmall.copyWith(
+                                color: Colors.white70,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+
+            const SizedBox(height: 20),
+
+            const SuggestedSection(),
+            const SizedBox(height: 20),
+
+            const ModernSuggestedSection(),
+            const SizedBox(height: 20),
+
+            const LuxurySuggestedSection(),
+          ],
+        ),
       ),
     );
   }
@@ -97,6 +151,9 @@ class SofaView extends StatelessWidget {
               ),
               // Sort Button
               PopupMenuButton<String>(
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                ),
                 icon: const Icon(Icons.sort, color: AppColors.primaryColor),
                 onSelected: (value) => controller.applySort(value),
                 itemBuilder: (context) {
@@ -236,174 +293,6 @@ class SofaView extends StatelessWidget {
             );
           });
         },
-      ),
-    );
-  }
-
-  Widget _buildEmptyState() {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.chair_alt_outlined,
-            size: 80,
-            color: AppColors.greyColor.withOpacity(0.6),
-          ),
-          const SizedBox(height: 24),
-          Text(
-            'No sofas found',
-            style: TextStyles.headlineMedium.copyWith(
-              color: AppColors.textColorPrimary,
-            ),
-          ),
-          const SizedBox(height: 12),
-          Text(
-            'Try adjusting your filters',
-            style: TextStyles.bodyMedium.copyWith(
-              color: AppColors.textColorHint,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildProductGrid(SofaController controller) {
-    return RefreshIndicator(
-      onRefresh: () async {
-        controller.refreshSofas();
-      },
-      child: GridView.builder(
-        padding: const EdgeInsets.all(16),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-          childAspectRatio: 0.7,
-        ),
-        itemCount: controller.sofaProducts.length,
-        itemBuilder: (context, index) {
-          final product = controller.sofaProducts[index];
-          return _sofaProductCard(product);
-        },
-      ),
-    );
-  }
-
-  Widget _sofaProductCard(Product product) {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed('/product-details', arguments: product);
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors.surfaceColor,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.greyColor.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 8,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Product Image
-            Expanded(
-              flex: 3,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: AppColors.backgroundColor,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    topRight: Radius.circular(16),
-                  ),
-                ),
-                child: product.image != null && product.image.isNotEmpty
-                    ? ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(16),
-                          topRight: Radius.circular(16),
-                        ),
-                        child: Image.network(
-                          product.image,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          errorBuilder: (context, error, stackTrace) {
-                            return _imageFallback();
-                          },
-                        ),
-                      )
-                    : _imageFallback(),
-              ),
-            ),
-            // Product Details
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.name,
-                      style: TextStyles.bodyMedium.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.star,
-                          color: AppColors.warningColor,
-                          size: 14,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          product.rating.toString(),
-                          style: TextStyles.bodySmall,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          '(${product.id})',
-                          style: TextStyles.bodySmall.copyWith(
-                            color: AppColors.textColorHint,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Text(
-                      '\$${product.price.toStringAsFixed(2)}',
-                      style: TextStyles.titleMedium.copyWith(
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _imageFallback() {
-    return Center(
-      child: Icon(
-        Icons.chair_alt_rounded,
-        size: 50,
-        color: AppColors.greyColor.withOpacity(0.6),
       ),
     );
   }

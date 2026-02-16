@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/base/base_controller.dart';
 import '../../../core/models/product_model.dart';
@@ -5,6 +8,9 @@ import '../../../apihelper/repositories/api_repository.dart';
 
 class SofaController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
+
+  final PageController featurePageController = PageController();
+  final RxInt currentFeatureIndex = 0.obs;
 
   var sofaProducts = <Product>[].obs;
   var isLoading = false.obs;
@@ -31,10 +37,47 @@ class SofaController extends BaseController {
     'newest',
   ];
 
+  final List<Map<String, String>> featureBanners = [
+    {
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+      "title": "Luxury Comfort",
+      "desc": "Experience premium quality sofas",
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      "title": "Modern Design",
+      "desc": "Stylish sofas for your home",
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1616627981455-8b1a5d9e6f2b",
+      "title": "Best Deals",
+      "desc": "Grab sofas at great prices",
+    },
+  ];
+
   @override
   void onInit() {
     super.onInit();
     loadSofas();
+    _autoSlideFeatures();
+  }
+
+  void _autoSlideFeatures() {
+    Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (featurePageController.hasClients) {
+        currentFeatureIndex.value++;
+
+        if (currentFeatureIndex.value >= featureBanners.length) {
+          currentFeatureIndex.value = 0;
+        }
+
+        featurePageController.animateToPage(
+          currentFeatureIndex.value,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 
   void loadSofas() async {
