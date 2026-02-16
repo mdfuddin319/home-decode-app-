@@ -1,10 +1,6 @@
 import 'package:get/get.dart';
-import '../screens/sofa_screen/binding/sofa_binding.dart';
-import '../screens/sofa_screen/view/sofa_screen.dart';
-import '../screens/splash/splash_view.dart';
-import '../screens/splash/splash_binding.dart';
-import '../screens/onboarding/onboarding_view.dart';
-import '../screens/onboarding/onboarding_binding.dart';
+import 'package:home_decor_app/screens/onboarding/onboarding_binding.dart';
+import 'package:home_decor_app/screens/onboarding/onboarding_view.dart';
 import '../screens/home/home_view.dart';
 import '../screens/home/home_binding.dart';
 import '../screens/product/product_view.dart';
@@ -15,6 +11,10 @@ import '../screens/table_screen/binding/table_binding.dart';
 import '../screens/table_screen/view/table_screen.dart';
 import '../screens/wishlist/view/wishlist_view.dart';
 import '../screens/wishlist/binding/wishlist_binding.dart';
+import '../screens/sofa_screen/binding/sofa_binding.dart';
+import '../screens/sofa_screen/view/sofa_screen.dart';
+import '../wishlist/binding/wishlist_binding.dart';
+import '../wishlist/view/wishlist_view.dart';
 
 part 'app_routes.dart';
 
@@ -22,11 +22,6 @@ abstract class AppPages {
   static const String initial = AppRoutes.splash;
 
   static final routes = [
-    GetPage(
-      name: AppRoutes.splash,
-      page: () => const SplashView(),
-      binding: SplashBinding(),
-    ),
     GetPage(
       name: AppRoutes.onboarding,
       page: () => const OnboardingView(),

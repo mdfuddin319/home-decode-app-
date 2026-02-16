@@ -5,7 +5,6 @@ import '../../apihelper/repositories/api_repository.dart';
 
 class HomeController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
-
   var products = <Product>[].obs;
   var featuredProducts = <Product>[].obs;
   var categories = <String>[].obs;
@@ -36,12 +35,13 @@ class HomeController extends BaseController {
 
   void loadCategories() {
     categories.assignAll([
-      "Sofas",
+      "All",
+      "Sofa",
+      "Lighting",
+      "Beds",
       "Tables",
       "Chairs",
-      "Beds",
       "Storage",
-      "Lighting",
     ]);
   }
 
