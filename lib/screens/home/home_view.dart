@@ -1578,7 +1578,7 @@ void _navigateToCategory(String category) {
   if (categoryLower.contains('sofa')) {
     Get.toNamed('/sofa');
   } else if (categoryLower.contains('table')) {
-    Get.toNamed('/product', arguments: {'category': 'tables'});
+    Get.toNamed('/table', arguments: {'category': 'lighting'});
   } else if (categoryLower.contains('chair')) {
     Get.toNamed('/sofa'); // Navigate to sofa as fallback
   } else if (categoryLower.contains('bed')) {

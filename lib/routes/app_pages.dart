@@ -7,8 +7,12 @@ import '../screens/product/product_view.dart';
 import '../screens/product/product_binding.dart';
 import '../screens/cart/cart_view.dart';
 import '../screens/cart/cart_binding.dart';
+import '../screens/profile/binding/profile_binding.dart';
+import '../screens/profile/view/profile_view.dart';
 import '../screens/sofa_screen/binding/sofa_binding.dart';
 import '../screens/sofa_screen/view/sofa_screen.dart';
+import '../screens/table_screen/binding/table_binding.dart';
+import '../screens/table_screen/view/table_screen.dart';
 import '../wishlist/binding/wishlist_binding.dart';
 import '../wishlist/view/wishlist_view.dart';
 
@@ -49,9 +53,19 @@ abstract class AppPages {
       binding: SofaBinding(),
     ),
     GetPage(
+      name: AppRoutes.table,
+      page: () => const TableView(),
+      binding: TableBinding(),
+    ),
+    GetPage(
       name: AppRoutes.wishlist,
       page: () => const WishlistView(),
       binding: WishlistBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.profile,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }
