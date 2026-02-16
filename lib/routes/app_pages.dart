@@ -11,6 +11,8 @@ import '../screens/product/product_view.dart';
 import '../screens/product/product_binding.dart';
 import '../screens/cart/cart_view.dart';
 import '../screens/cart/cart_binding.dart';
+import '../screens/table_screen/binding/table_binding.dart';
+import '../screens/table_screen/view/table_screen.dart';
 import '../screens/wishlist/view/wishlist_view.dart';
 import '../screens/wishlist/binding/wishlist_binding.dart';
 
@@ -59,6 +61,11 @@ abstract class AppPages {
       name: AppRoutes.sofa,
       page: () => const SofaView(),
       binding: SofaBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.table,
+      page: () => const TableView(),
+      binding: TableBinding(),
     ),
   ];
 }
