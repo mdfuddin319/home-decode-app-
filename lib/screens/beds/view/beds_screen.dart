@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_decor_app/screens/beds/controller/beds_controller.dart';
 import 'package:home_decor_app/screens/sofa_screen/view/widget/SuggestedSection.dart';
 import 'package:home_decor_app/screens/sofa_screen/view/widget/luxurysuggestion.dart';
-import 'package:home_decor_app/screens/sofa_screen/view/widget/modernSuggestion.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
-import '../controller/lighting_controller.dart';
+import 'widget/modernSuggestion.dart';
 
-class LightingView extends StatelessWidget {
-  const LightingView({Key? key}) : super(key: key);
+class BedsScreen extends StatelessWidget {
+  const BedsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final LightingController controller = Get.find<LightingController>();
+    final BedsController controller = Get.find<BedsController>();
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.surfaceColor,
         elevation: 0,
         title: Text(
-          'Lighting',
+          'Beds',
           style: TextStyles.headlineSmall.copyWith(
             color: AppColors.primaryColor,
           ),
@@ -117,7 +117,7 @@ class LightingView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(LightingController controller) {
+  Widget _buildHeader(BedsController controller) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -132,7 +132,7 @@ class LightingView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Discover Our Lighting',
+                    'Discover Our Sofas',
                     style: TextStyles.titleLarge.copyWith(
                       color: AppColors.primaryColor,
                       fontWeight: FontWeight.bold,
@@ -249,7 +249,7 @@ class LightingView extends StatelessWidget {
     );
   }
 
-  Widget _buildFilterChips(LightingController controller) {
+  Widget _buildFilterChips(BedsController controller) {
     return Container(
       height: 50,
       padding: const EdgeInsets.symmetric(vertical: 8),

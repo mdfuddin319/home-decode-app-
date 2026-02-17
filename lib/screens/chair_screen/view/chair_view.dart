@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:home_decor_app/screens/chair_screen/controller/chair_controller.dart';
 import 'package:home_decor_app/screens/sofa_screen/view/widget/SuggestedSection.dart';
 import 'package:home_decor_app/screens/sofa_screen/view/widget/luxurysuggestion.dart';
-import 'package:home_decor_app/screens/sofa_screen/view/widget/modernSuggestion.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/theme/text_styles.dart';
-import '../controller/lighting_controller.dart';
+import '../../beds/view/widget/modernSuggestion.dart';
 
-class LightingView extends StatelessWidget {
-  const LightingView({Key? key}) : super(key: key);
+class ChairView extends StatelessWidget {
+  const ChairView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final LightingController controller = Get.find<LightingController>();
+    final ChairController controller = Get.find<ChairController>();
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.surfaceColor,
         elevation: 0,
         title: Text(
-          'Lighting',
+          'Chairs',
           style: TextStyles.headlineSmall.copyWith(
             color: AppColors.primaryColor,
           ),
@@ -46,8 +46,7 @@ class LightingView extends StatelessWidget {
             _buildFilterChips(controller),
 
             const SizedBox(height: 10),
-            // Featured Products
-            //  Banner Slider
+
             SizedBox(
               height: 160,
               child: PageView.builder(
@@ -117,7 +116,7 @@ class LightingView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(LightingController controller) {
+  Widget _buildHeader(ChairController controller) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(16),
@@ -132,7 +131,7 @@ class LightingView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Discover Our Lighting',
+                    'Discover Our chair',
                     style: TextStyles.titleLarge.copyWith(
                       color: AppColors.primaryColor,
                       fontWeight: FontWeight.bold,
@@ -249,7 +248,7 @@ class LightingView extends StatelessWidget {
     );
   }
 
-  Widget _buildFilterChips(LightingController controller) {
+  Widget _buildFilterChips(ChairController controller) {
     return Container(
       height: 50,
       padding: const EdgeInsets.symmetric(vertical: 8),

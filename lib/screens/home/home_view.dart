@@ -1571,78 +1571,25 @@ IconData _getCategoryIcon(String category) {
   if (c.contains('cabinet') || c.contains('storage') || c.contains('shelf'))
     return Icons.inventory_2_rounded;
   return Icons.chair;
-          ),
-        ],
-      ),
-    ),
-  );
 }
 
-Widget _imageFallback() {
-  return Center(
-    child: Icon(
-      Icons.chair,
-      size: 40,
-      color: AppColors.greyColor.withOpacity(0.6),
-    ),
-  );
-}
-
-IconData _getCategoryIcon(String category) {
-  final c = category.toLowerCase();
-  if (c.contains('sofa')) return Icons.weekend_rounded;
-  if (c.contains('bed')) return Icons.bed_rounded;
-  if (c.contains('table')) return Icons.table_chart_rounded;
-  if (c.contains('chair')) return Icons.chair_rounded;
-  if (c.contains('lamp') || c.contains('light') || c.contains('lighting'))
-    return Icons.lightbulb;
-  if (c.contains('cabinet') || c.contains('storage') || c.contains('shelf'))
-    return Icons.inventory_2_rounded;
-  return Icons.chair;
-}
-
-/// Navigate to category-specific screen
 void _navigateToCategory(String category) {
   final categoryLower = category.toLowerCase();
 
   if (categoryLower.contains('sofa')) {
     Get.toNamed('/sofa');
   } else if (categoryLower.contains('table')) {
-    Get.toNamed('/product', arguments: {'category': 'tables'});
-  } else if (categoryLower.contains('chair')) {
-    Get.toNamed('/sofa'); // Navigate to sofa as fallback
+    Get.toNamed('/table', arguments: {'category': 'table'});
   } else if (categoryLower.contains('bed')) {
-    Get.toNamed('/product', arguments: {'category': 'beds'});
+    Get.toNamed('/beds', arguments: {'category': 'beds'});
   } else if (categoryLower.contains('storage')) {
-    Get.toNamed('/product', arguments: {'category': 'storage'});
-  } else if (categoryLower.contains('lighting') ||
-      categoryLower.contains('lamp')) {
-    Get.toNamed('/product', arguments: {'category': 'lighting'});
-  } else {
-    // Default: navigate to sofa screen
-    Get.toNamed('/home');
-  }
-}
-
-/// Navigate to category-specific screen
-void _navigateToCategory(String category) {
-  final categoryLower = category.toLowerCase();
-
-  if (categoryLower.contains('sofa')) {
-    Get.toNamed('/sofa');
-  } else if (categoryLower.contains('table')) {
-    Get.toNamed('/product', arguments: {'category': 'tables'});
+    Get.toNamed('/storage', arguments: {'category': 'storage'});
   } else if (categoryLower.contains('chair')) {
-    Get.toNamed('/sofa'); // Navigate to sofa as fallback
-  } else if (categoryLower.contains('bed')) {
-    Get.toNamed('/product', arguments: {'category': 'beds'});
-  } else if (categoryLower.contains('storage')) {
-    Get.toNamed('/product', arguments: {'category': 'storage'});
+    Get.toNamed('/chair', arguments: {'category': 'chair'});
   } else if (categoryLower.contains('lighting') ||
       categoryLower.contains('lamp')) {
     Get.toNamed('/lighting', arguments: {'category': 'lighting'});
   } else {
-    // Default: navigate to sofa screen
     Get.toNamed('/home');
   }
 }

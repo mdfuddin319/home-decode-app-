@@ -10,6 +10,7 @@ abstract class AppRoutes {
   static const String cart = '/cart';
   static const String wishlist = '/wishlist';
   static const String sofa = '/sofa';
+  static const String table = '/table';
   static const String profile = '/profile';
   static const String login = '/login';
   static const String register = '/register';
@@ -17,6 +18,8 @@ abstract class AppRoutes {
   static const String orderConfirmation = '/order-confirmation';
   static const String search = '/search';
   static const String category = '/category';
-  static const String sofa = '/sofa';
   static const String lighting = '/lighting';
+  static const String beds = '/beds';
+  static const String chair = '/chair';
+  static const String storage = '/storage';
 }

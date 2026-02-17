@@ -242,7 +242,7 @@ class WishlistView extends StatelessWidget {
                     bottomLeft: Radius.circular(16),
                   ),
                 ),
-                child: product.image != null && product.image.isNotEmpty
+                child: product.image.isNotEmpty
                     ? ClipRRect(
                         borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(16),

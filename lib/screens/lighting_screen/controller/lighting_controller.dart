@@ -1,78 +1,78 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../core/base/base_controller.dart';
 import '../../../core/models/product_model.dart';
+import '../../../apihelper/repositories/api_repository.dart';
 
-class LightingController extends GetxController {
-  final PageController pageController = PageController(viewportFraction: 0.92);
-  final RxInt currentBanner = 0.obs;
+class LightingController extends BaseController {
+  final ApiRepository _apiRepository = ApiRepository();
 
-  final banners = <String>[
-    'assets/images/onboarding_img1.jpg',
-    'assets/images/onboarding_img2.png',
-    'assets/images/onboarding_img3.jpg',
-  ].obs;
+  final PageController featurePageController = PageController();
+  final RxInt currentFeatureIndex = 0.obs;
 
-  final suggested = <Product>[].obs;
-  final superDeals = <Product>[].obs;
+  var sofaProducts = <Product>[].obs;
+  var isLoading = false.obs;
+  var selectedFilter = 0.obs;
+  var sortBy = 'popular'.obs;
 
-  Timer? _autoTimer;
+  // Filter options
+  final List<String> filterOptions = [
+    'All',
+    'Modern',
+    'Classic',
+    'Sectional',
+    'L-Shaped',
+    'Recliner',
+    'Chaise',
+  ];
+
+  // Sort options
+  final List<String> sortOptions = [
+    'popular',
+    'price-low',
+    'price-high',
+    'rating',
+    'newest',
+  ];
+
+  final List<Map<String, String>> featureBanners = [
+    {
+      "image": "assets/images/lighting11.png",
+      "title": "Luxury Comfort",
+      "desc": "Experience premium quality lighting",
+    },
+    {
+      "image": "assets/images/lighting12.png",
+      "title": "Modern Design",
+      "desc": "Stylish lighting for your home",
+    },
+    {
+      "image": "assets/images/lighting13.png",
+      "title": "Best Deals",
+      "desc": "Grab lighting at great prices",
+    },
+  ];
 
   @override
   void onInit() {
     super.onInit();
-    _loadSampleData();
-    _startAutoSlide();
-    pageController.addListener(_pageListener);
+    loadlighting();
+    _autoSlideFeatures();
   }
 
-  void _pageListener() {
-    final page = pageController.page?.round() ?? 0;
-    if (currentBanner.value != page) currentBanner.value = page;
-  }
+  void _autoSlideFeatures() {
+    Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (featurePageController.hasClients) {
+        currentFeatureIndex.value++;
 
-  void _loadSampleData() {
-    suggested.assignAll([
-      Product(
-        id: 1,
-        name: 'Comfy Sofa',
-        price: 249.99,
-        image: 'assets/images/light1.png',
-        rating: 4.6,
-        description: 'Modern comfortable sofa',
-        category: 'Sofa',
-      ),
-      Product(
-        id: 2,
-        name: 'Elegant Chair',
-        price: 89.00,
-        image: 'assets/images/light4.png',
-        rating: 4.3,
-        description: 'Stylish chair',
-        category: 'Chair',
-      ),
-    ]);
+        if (currentFeatureIndex.value >= featureBanners.length) {
+          currentFeatureIndex.value = 0;
+        }
 
-    superDeals.assignAll([
-      Product(
-        id: 11,
-        name: 'Pendant Lamp',
-        price: 49.99,
-        image: 'assets/images/light3.png',
-        rating: 4.1,
-        description: 'Warm lighting',
-        category: 'Lighting',
-      ),
-    ]);
-  }
-
-  void _startAutoSlide() {
-    _autoTimer?.cancel();
-    _autoTimer = Timer.periodic(const Duration(seconds: 3), (_) {
-      if (pageController.hasClients && banners.isNotEmpty) {
-        final next = (currentBanner.value + 1) % banners.length;
-        pageController.animateToPage(
-          next,
+        featurePageController.animateToPage(
+          currentFeatureIndex.value,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
         );
@@ -80,10 +80,64 @@ class LightingController extends GetxController {
     });
   }
 
-  @override
-  void onClose() {
-    _autoTimer?.cancel();
-    pageController.dispose();
-    super.onClose();
+  void loadlighting() async {
+    try {
+      isLoading.value = true;
+      final allProducts = await _apiRepository.getProducts();
+
+      // Filter products that contain 'sofa' in category or name
+      final sofas = allProducts.where((product) {
+        final categoryLower = product.category.toLowerCase();
+        final nameLower = product.name.toLowerCase();
+        return categoryLower.contains('lighting') ||
+            nameLower.contains('lighting') ||
+            categoryLower.contains('furniture') && categoryLower.isNotEmpty;
+      }).toList();
+
+      sofaProducts.assignAll(sofas);
+    } catch (e) {
+      setError(e.toString());
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  void applyFilter(int index) {
+    selectedFilter.value = index;
+    loadlighting(); // Reload with filter
+  }
+
+  void applySort(String sortOption) {
+    sortBy.value = sortOption;
+
+    switch (sortOption) {
+      case 'price-low':
+        sofaProducts.sort((a, b) => a.price.compareTo(b.price));
+        break;
+      case 'price-high':
+        sofaProducts.sort((a, b) => b.price.compareTo(a.price));
+        break;
+      case 'rating':
+        sofaProducts.sort((a, b) => b.rating.compareTo(a.rating));
+        break;
+      case 'newest':
+        sofaProducts.sort((a, b) => b.id.compareTo(a.id));
+        break;
+      default:
+        // Popular - keep original order
+        break;
+    }
+  }
+
+  void refreshSofas() {
+    loadlighting();
+  }
+
+  int get totalSofas => sofaProducts.length;
+
+  double get averagePrice {
+    if (sofaProducts.isEmpty) return 0;
+    return sofaProducts.fold(0.0, (sum, product) => sum + product.price) /
+        sofaProducts.length;
   }
 }

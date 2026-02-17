@@ -6,7 +6,7 @@ import '../../../core/base/base_controller.dart';
 import '../../../core/models/product_model.dart';
 import '../../../apihelper/repositories/api_repository.dart';
 
-class TableController extends BaseController {
+class BedsController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
 
   final PageController featurePageController = PageController();
@@ -39,26 +39,26 @@ class TableController extends BaseController {
 
   final List<Map<String, String>> featureBanners = [
     {
-      "image": "assets/images/Luxurysofa.png",
+      "image": "assets/images/beds7.png",
       "title": "Luxury Comfort",
-      "desc": "Experience premium quality sofas",
+      "desc": "Experience premium quality beds",
     },
     {
-      "image": "assets/images/modernsofa.png",
+      "image": "assets/images/beds8.png",
       "title": "Modern Design",
-      "desc": "Stylish sofas for your home",
+      "desc": "Stylish beds for your home",
     },
     {
-      "image": "assets/images/newmodernsofa.png",
+      "image": "assets/images/beds9.png",
       "title": "Best Deals",
-      "desc": "Grab sofas at great prices",
+      "desc": "Grab beds at great prices",
     },
   ];
 
   @override
   void onInit() {
     super.onInit();
-    loadTable();
+    loadbeds();
     _autoSlideFeatures();
   }
 
@@ -80,7 +80,7 @@ class TableController extends BaseController {
     });
   }
 
-  void loadTable() async {
+  void loadbeds() async {
     try {
       isLoading.value = true;
       final allProducts = await _apiRepository.getProducts();
@@ -104,7 +104,7 @@ class TableController extends BaseController {
 
   void applyFilter(int index) {
     selectedFilter.value = index;
-    loadTable();
+    loadbeds(); // Reload with filter
   }
 
   void applySort(String sortOption) {
@@ -124,12 +124,13 @@ class TableController extends BaseController {
         sofaProducts.sort((a, b) => b.id.compareTo(a.id));
         break;
       default:
+        // Popular - keep original order
         break;
     }
   }
 
-  void refreshtable() {
-    loadTable();
+  void refreshSofas() {
+    loadbeds();
   }
 
   int get totalSofas => sofaProducts.length;

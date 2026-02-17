@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/base/base_controller.dart';
 import '../../../core/models/product_model.dart';
@@ -5,6 +8,9 @@ import '../../../apihelper/repositories/api_repository.dart';
 
 class SofaController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
+
+  final PageController featurePageController = PageController();
+  final RxInt currentFeatureIndex = 0.obs;
 
   var sofaProducts = <Product>[].obs;
   var isLoading = false.obs;
@@ -31,10 +37,47 @@ class SofaController extends BaseController {
     'newest',
   ];
 
+  final List<Map<String, String>> featureBanners = [
+    {
+      "image": "assets/images/Luxurysofa.png",
+      "title": "Luxury Comfort",
+      "desc": "Experience premium quality sofas",
+    },
+    {
+      "image": "assets/images/modernsofa.png",
+      "title": "Modern Design",
+      "desc": "Stylish sofas for your home",
+    },
+    {
+      "image": "assets/images/newmodernsofa.png",
+      "title": "Best Deals",
+      "desc": "Grab sofas at great prices",
+    },
+  ];
+
   @override
   void onInit() {
     super.onInit();
     loadSofas();
+    _autoSlideFeatures();
+  }
+
+  void _autoSlideFeatures() {
+    Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (featurePageController.hasClients) {
+        currentFeatureIndex.value++;
+
+        if (currentFeatureIndex.value >= featureBanners.length) {
+          currentFeatureIndex.value = 0;
+        }
+
+        featurePageController.animateToPage(
+          currentFeatureIndex.value,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
   }
 
   void loadSofas() async {
@@ -61,7 +104,7 @@ class SofaController extends BaseController {
 
   void applyFilter(int index) {
     selectedFilter.value = index;
-    loadSofas(); // Reload with filter
+    loadSofas();
   }
 
   void applySort(String sortOption) {
@@ -81,7 +124,6 @@ class SofaController extends BaseController {
         sofaProducts.sort((a, b) => b.id.compareTo(a.id));
         break;
       default:
-        // Popular - keep original order
         break;
     }
   }

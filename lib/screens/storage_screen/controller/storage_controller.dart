@@ -6,7 +6,7 @@ import '../../../core/base/base_controller.dart';
 import '../../../core/models/product_model.dart';
 import '../../../apihelper/repositories/api_repository.dart';
 
-class TableController extends BaseController {
+class StorageController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
 
   final PageController featurePageController = PageController();
@@ -58,7 +58,7 @@ class TableController extends BaseController {
   @override
   void onInit() {
     super.onInit();
-    loadTable();
+    loadSofas();
     _autoSlideFeatures();
   }
 
@@ -80,7 +80,7 @@ class TableController extends BaseController {
     });
   }
 
-  void loadTable() async {
+  void loadSofas() async {
     try {
       isLoading.value = true;
       final allProducts = await _apiRepository.getProducts();
@@ -104,7 +104,7 @@ class TableController extends BaseController {
 
   void applyFilter(int index) {
     selectedFilter.value = index;
-    loadTable();
+    loadSofas();
   }
 
   void applySort(String sortOption) {
@@ -128,8 +128,8 @@ class TableController extends BaseController {
     }
   }
 
-  void refreshtable() {
-    loadTable();
+  void refreshSofas() {
+    loadSofas();
   }
 
   int get totalSofas => sofaProducts.length;
