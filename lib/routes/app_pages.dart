@@ -95,5 +95,10 @@ abstract class AppPages {
       page: () => const StorageView(),
       binding: StorageBinding(),
     ),
+    GetPage(
+      name: AppRoutes.profile,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
+    ),
   ];
 }
