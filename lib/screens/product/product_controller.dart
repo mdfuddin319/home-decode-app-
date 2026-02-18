@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import '../../core/base/base_controller.dart';
 import '../../core/models/product_model.dart';
 import '../../apihelper/repositories/api_repository.dart';
+import 'product_controller.dart' as _apiRepository;
 
 class ProductController extends BaseController {
   final ApiRepository _apiRepository = ApiRepository();
@@ -13,7 +14,6 @@ class ProductController extends BaseController {
   void onInit() {
     super.onInit();
     loadProducts();
-    loadCategories();
   }
 
   void loadProducts() async {
@@ -34,32 +34,32 @@ class ProductController extends BaseController {
     loadProducts();
   }
 
-  void loadCategories() {
-    categories.assignAll([
-      "All",
-      "Sofas",
-      "Tables",
-      "Chairs",
-      "Beds",
-      "Storage",
-      "Lighting",
-    ]);
-  }
-
-  void addToCart(Product product) async {
-    try {
-      await _apiRepository.addToCart(product.id, 1);
-      Get.snackbar(
-        "Success",
-        "${product.name} added to cart!",
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    } catch (e) {
-      Get.snackbar(
-        "Error",
-        "Failed to add to cart",
-        snackPosition: SnackPosition.BOTTOM,
-      );
-    }
-  }
+  // void loadCategories() {
+  //   categories.assignAll([
+  //     "All",
+  //     "Sofas",
+  //     "Tables",
+  //     "Chairs",
+  //     "Beds",
+  //     "Storage",
+  //     "Lighting",
+  //   ]);
 }
+
+  // void addToCart(Product product) async {
+  //   try {
+  //     await _apiRepository.addToCart(product.id, 1);
+  //     Get.snackbar(
+  //       "Success",
+  //       "${product.name} added to cart!",
+  //       snackPosition: SnackPosition.BOTTOM,
+  //     );
+  //   } catch (e) {
+  //     Get.snackbar(
+  //       "Error",
+  //       "Failed to add to cart",
+  //       snackPosition: SnackPosition.BOTTOM,
+  //     );
+  //   }
+  //}
+

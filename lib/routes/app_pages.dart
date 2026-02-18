@@ -13,6 +13,8 @@ import '../screens/product/product_view.dart';
 import '../screens/product/product_binding.dart';
 import '../screens/cart/cart_view.dart';
 import '../screens/cart/cart_binding.dart';
+import '../screens/product_details_page/binding/product_details_binding.dart';
+import '../screens/product_details_page/view/productDetailsPage.dart';
 import '../screens/profile/binding/profile_binding.dart';
 import '../screens/profile/view/profile_view.dart';
 import '../screens/storage_screen/binding/storage_binding.dart';
@@ -94,6 +96,11 @@ abstract class AppPages {
       name: AppRoutes.storage,
       page: () => const StorageView(),
       binding: StorageBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.productDetails,
+      page: () => ProductDetailsView(product: Get.arguments),
+      binding: ProductDetailsBinding(),
     ),
   ];
 }
