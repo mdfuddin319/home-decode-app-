@@ -930,42 +930,62 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Camel Hump',
                               imagePath: 'assets/images/sofaC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                Get.toNamed(
+                                  '/sofa',
+                                  arguments: {'category': 'Camel Hump'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Leather upholstery',
                               imagePath: 'assets/images/sofaC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                Get.toNamed(
+                                  '/sofa',
+                                  arguments: {'category': 'Leather upholstery'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: ' geometric sofa',
                               imagePath: 'assets/images/sofaC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                Get.toNamed(
+                                  '/sofa',
+                                  arguments: {'category': 'Geometric sofa'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Loveseat',
                               imagePath: 'assets/images/sofaC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                Get.toNamed(
+                                  '/sofa',
+                                  arguments: {'category': 'Loveseat'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: ' reclining Chaise Longue',
                               imagePath: 'assets/images/sofaC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                Get.toNamed(
+                                  '/sofa',
+                                  arguments: {
+                                    'category': 'Reclining Chaise Longue',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Cabriole',
                               imagePath: 'assets/images/sofaC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                Get.toNamed(
+                                  '/sofa',
+                                  arguments: {'category': 'Cabriole'},
+                                );
                               },
                             ),
                           ],
@@ -990,42 +1010,60 @@ class HomeView extends StatelessWidget {
                               categoryName: ' Chandeliers',
                               imagePath: 'assets/images/light1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                Get.toNamed(
+                                  '/lighting',
+                                  arguments: {'category': 'Chandeliers'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Light Room',
                               imagePath: 'assets/images/sofatwo.png',
                               onTap: () {
-                                // Handle bed category tap
+                                Get.toNamed(
+                                  '/lighting',
+                                  arguments: {'category': 'Light Room'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Ceiling lights',
                               imagePath: 'assets/images/light3.png',
                               onTap: () {
-                                // Handle table category tap
+                                Get.toNamed(
+                                  '/lighting',
+                                  arguments: {'category': 'Ceiling lights'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Pot lights',
                               imagePath: 'assets/images/light4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                Get.toNamed(
+                                  '/lighting',
+                                  arguments: {'category': 'Pot lights'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Desk lamps',
                               imagePath: 'assets/images/light5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                Get.toNamed(
+                                  '/lighting',
+                                  arguments: {'category': 'Desk lamps'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'LED strip',
                               imagePath: 'assets/images/light6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                Get.toNamed(
+                                  '/lighting',
+                                  arguments: {'category': 'LED strip'},
+                                );
                               },
                             ),
                           ],
@@ -1050,42 +1088,64 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Upholstered cocoon',
                               imagePath: 'assets/images/BedC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                Get.toNamed(
+                                  '/beds',
+                                  arguments: {'category': 'Upholstered cocoon'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Canopy & Four-Poster Beds',
                               imagePath: 'assets/images/BedC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                Get.toNamed(
+                                  '/beds',
+                                  arguments: {
+                                    'category': 'Canopy & Four-Poster Beds',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Hydraulic Storage Beds',
                               imagePath: 'assets/images/BedC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                Get.toNamed(
+                                  '/beds',
+                                  arguments: {
+                                    'category': 'Hydraulic Storage Beds',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Floating Beds',
                               imagePath: 'assets/images/BedC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                Get.toNamed(
+                                  '/beds',
+                                  arguments: {'category': 'Floating Beds'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Solid Wood Frames',
                               imagePath: 'assets/images/BedC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                Get.toNamed(
+                                  '/beds',
+                                  arguments: {'category': 'Solid Wood Frames'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Smart Bases',
                               imagePath: 'assets/images/BedC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                Get.toNamed(
+                                  '/beds',
+                                  arguments: {'category': 'Smart Bases'},
+                                );
                               },
                             ),
                           ],
@@ -1110,42 +1170,66 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Organically-Shaped Tables',
                               imagePath: 'assets/images/TableC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                Get.toNamed(
+                                  '/table',
+                                  arguments: {
+                                    'category': 'Organically-Shaped Tables',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Live Edge & Resin',
                               imagePath: 'assets/images/TableC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                Get.toNamed(
+                                  '/table',
+                                  arguments: {'category': 'Live Edge & Resin'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Waterfall Consoles',
                               imagePath: 'assets/images/TableC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                Get.toNamed(
+                                  '/table',
+                                  arguments: {'category': 'Waterfall Consoles'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Slim floating Consoles',
                               imagePath: 'assets/images/TableC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                Get.toNamed(
+                                  '/table',
+                                  arguments: {
+                                    'category': 'Slim floating Consoles',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'C-Tables',
                               imagePath: 'assets/images/TableC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                Get.toNamed(
+                                  '/table',
+                                  arguments: {'category': 'C-Tables'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Monolithic Stone Plinths',
                               imagePath: 'assets/images/TableC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                Get.toNamed(
+                                  '/table',
+                                  arguments: {
+                                    'category': 'Monolithic Stone Plinths',
+                                  },
+                                );
                               },
                             ),
                           ],
@@ -1170,42 +1254,68 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Curved Swivel Chairs',
                               imagePath: 'assets/images/ChairC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                Get.toNamed(
+                                  '/chair',
+                                  arguments: {
+                                    'category': 'Curved Swivel Chairs',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Wingback Shelter Chairs',
                               imagePath: 'assets/images/ChairC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                Get.toNamed(
+                                  '/chair',
+                                  arguments: {
+                                    'category': 'Wingback Shelter Chairs',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Active-Sitting Stools',
                               imagePath: 'assets/images/ChairC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                Get.toNamed(
+                                  '/chair',
+                                  arguments: {
+                                    'category': 'Active-Sitting Stools',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Mesh Performance Chairs',
                               imagePath: 'assets/images/ChairC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                Get.toNamed(
+                                  '/chair',
+                                  arguments: {
+                                    'category': 'Mesh Performance Chairs',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Eames-Style Lounge ',
                               imagePath: 'assets/images/ChairC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                Get.toNamed(
+                                  '/chair',
+                                  arguments: {'category': 'Eames-Style Lounge'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Pod Chairs',
                               imagePath: 'assets/images/ChairC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                Get.toNamed(
+                                  '/chair',
+                                  arguments: {'category': 'Pod Chairs'},
+                                );
                               },
                             ),
                           ],
@@ -1230,42 +1340,64 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Hidden Wardrobes',
                               imagePath: 'assets/images/StoreC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                Get.toNamed(
+                                  '/storage',
+                                  arguments: {'category': 'Hidden Wardrobes'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Pull-Out Pantry',
                               imagePath: 'assets/images/StoreC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                Get.toNamed(
+                                  '/storage',
+                                  arguments: {'category': 'Pull-Out Pantry'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Under-Stair Drawer',
                               imagePath: 'assets/images/StoreC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                Get.toNamed(
+                                  '/storage',
+                                  arguments: {'category': 'Under-Stair Drawer'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Magnetic Backsplash Racks',
                               imagePath: 'assets/images/StoreC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                Get.toNamed(
+                                  '/storage',
+                                  arguments: {
+                                    'category': 'Magnetic Backsplash Racks',
+                                  },
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Lift-up TV',
                               imagePath: 'assets/images/StoreC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                Get.toNamed(
+                                  '/storage',
+                                  arguments: {'category': 'Lift-up TV'},
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Charging Station Side',
                               imagePath: 'assets/images/StoreC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                Get.toNamed(
+                                  '/storage',
+                                  arguments: {
+                                    'category': 'Charging Station Sideboard',
+                                  },
+                                );
                               },
                             ),
                           ],

@@ -7,6 +7,7 @@ class ProductCard extends StatelessWidget {
   final String price;
   final String oldPrice;
   final String dealText;
+  final VoidCallback? onImageTap;
 
   const ProductCard({
     Key? key,
@@ -16,6 +17,7 @@ class ProductCard extends StatelessWidget {
     required this.price,
     required this.oldPrice,
     required this.dealText,
+    this.onImageTap,
   }) : super(key: key);
 
   @override
@@ -44,12 +46,18 @@ class ProductCard extends StatelessWidget {
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(16),
                 ),
-                child: AspectRatio(
-                  aspectRatio: 1.2,
-                  child: Image.asset(
-                    image,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: onImageTap,
+                    child: AspectRatio(
+                      aspectRatio: 1.2,
+                      child: Image.asset(
+                        image,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
               ),

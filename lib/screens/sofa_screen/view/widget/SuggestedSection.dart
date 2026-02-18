@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:home_decor_app/screens/sofa_screen/view/widget/ProductCard.dart';
+import 'package:home_decor_app/screens/product_details_page/view/productDetailsPage.dart';
+
+import '../../../../core/models/product_model.dart';
+import '../../../../routes/app_pages.dart';
 
 class SuggestedSection extends StatelessWidget {
   const SuggestedSection({Key? key}) : super(key: key);
+
+  double _parsePrice(String value) {
+    final sanitized = value.replaceAll(RegExp(r'[^0-9.]'), '');
+    return double.tryParse(sanitized) ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +44,7 @@ class SuggestedSection extends StatelessWidget {
           child: ListView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            children: const [
+            children: [
               ProductCard(
                 image: "assets/images/sofas11.png",
                 title: "Everett Fabric 3-Seater Sofa",
@@ -42,8 +52,22 @@ class SuggestedSection extends StatelessWidget {
                 price: "₹32,499",
                 oldPrice: "₹45,000",
                 dealText: "Limited Time Offer",
+                onImageTap: () {
+                  final product = Product(
+                    id: 101,
+                    name: "Everett Fabric 3-Seater Sofa",
+                    price: _parsePrice("₹32,499"),
+                    image: "assets/images/sofas11.png",
+                    rating: 4.6,
+                    reviews: 0,
+                    description:
+                        "Comfortable 3-seater sofa with durable fabric upholstery.",
+                    category: "sofa",
+                    images: const ["assets/images/sofas11.png"],
+                  );
+                  Get.toNamed(AppRoutes.productDetails, arguments: product);
+                },
               ),
-
               ProductCard(
                 image: "assets/images/sofas12.png",
                 title: "Royal Velvet Tufted Sofa",
@@ -51,8 +75,22 @@ class SuggestedSection extends StatelessWidget {
                 price: "₹54,999",
                 oldPrice: "₹72,000",
                 dealText: "Festival Special",
+                onImageTap: () {
+                  final product = Product(
+                    id: 102,
+                    name: "Royal Velvet Tufted Sofa",
+                    price: _parsePrice("₹54,999"),
+                    image: "assets/images/sofas12.png",
+                    rating: 4.8,
+                    reviews: 0,
+                    description:
+                        "Premium tufted design with velvet finish for a luxe look.",
+                    category: "sofa",
+                    images: const ["assets/images/sofas12.png"],
+                  );
+                  Get.toNamed(AppRoutes.productDetails, arguments: product);
+                },
               ),
-
               ProductCard(
                 image: "assets/images/sofas13.png",
                 title: "Heritage Faux-Leather Couch",
@@ -60,6 +98,21 @@ class SuggestedSection extends StatelessWidget {
                 price: "₹28,800",
                 oldPrice: "₹35,500",
                 dealText: "Hot Seller",
+                onImageTap: () {
+                  final product = Product(
+                    id: 103,
+                    name: "Heritage Faux-Leather Couch",
+                    price: _parsePrice("₹28,800"),
+                    image: "assets/images/sofas13.png",
+                    rating: 4.2,
+                    reviews: 0,
+                    description:
+                        "Classic faux-leather couch with easy-to-clean finish.",
+                    category: "sofa",
+                    images: const ["assets/images/sofas13.png"],
+                  );
+                  Get.toNamed(AppRoutes.productDetails, arguments: product);
+                },
               ),
             ],
           ),

@@ -163,29 +163,29 @@ class ProductView extends StatelessWidget {
                                           ],
                                         ),
                                         const SizedBox(height: 10),
-                                        ElevatedButton(
-                                          onPressed: () =>
-                                              controller.addToCart(product),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor:
-                                                AppColors.primaryColor,
-                                            padding: const EdgeInsets.symmetric(
-                                              horizontal: 10,
-                                              vertical: 5,
-                                            ),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                            ),
-                                          ),
-                                          child: Text(
-                                            AppStrings.addToCart,
-                                            style: TextStyles.labelMedium
-                                                .copyWith(
-                                                  color: AppColors.whiteColor,
-                                                ),
-                                          ),
-                                        ),
+                                        // ElevatedButton(
+                                        //   onPressed: () =>
+                                        //       controller.addToCart(product),
+                                        //   style: ElevatedButton.styleFrom(
+                                        //     backgroundColor:
+                                        //         AppColors.primaryColor,
+                                        //     padding: const EdgeInsets.symmetric(
+                                        //       horizontal: 10,
+                                        //       vertical: 5,
+                                        //     ),
+                                        //     shape: RoundedRectangleBorder(
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(8),
+                                        //     ),
+                                        //   ),
+                                        //   child: Text(
+                                        //     AppStrings.addToCart,
+                                        //     style: TextStyles.labelMedium
+                                        //         .copyWith(
+                                        //           color: AppColors.whiteColor,
+                                        //         ),
+                                        //   ),
+                                        // ),
                                       ],
                                     ),
                                   ),
