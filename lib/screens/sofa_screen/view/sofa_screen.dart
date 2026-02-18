@@ -48,6 +48,12 @@ class SofaView extends StatelessWidget {
             const SizedBox(height: 10),
             // Featured Products
             // ⭐ Banner Slider
+
+            // Filter Chips
+            _buildFilterChips(controller),
+
+            const SizedBox(height: 10),
+
             SizedBox(
               height: 160,
               child: PageView.builder(
@@ -96,6 +102,37 @@ class SofaView extends StatelessWidget {
                           ],
                         ),
                       ),
+                          image: AssetImage(banner["image"]!),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: Colors.black.withOpacity(0.3),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              banner["title"]!,
+                              style: TextStyles.titleLarge.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              banner["desc"]!,
+                              style: TextStyles.bodySmall.copyWith(
+                                color: Colors.white70,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   );
                 },
@@ -109,6 +146,7 @@ class SofaView extends StatelessWidget {
 
             const ModernSuggestedSection(),
             const SizedBox(height: 20),
+            const SizedBox(height: 10),
 
             const LuxurySuggestedSection(),
           ],

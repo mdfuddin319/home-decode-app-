@@ -30,6 +30,7 @@ class SuggestedSection extends StatelessWidget {
         const SizedBox(height: 12),
 
         // 🔹 Product List
+        // Product List
         SizedBox(
           height: 240,
           child: ListView(
@@ -64,6 +65,30 @@ class SuggestedSection extends StatelessWidget {
                 price: "₹11,499",
                 oldPrice: "15,499",
                 dealText: "Hot Deal",
+                image: "assets/images/sofas11.png",
+                title: "Everett Fabric 3-Seater Sofa",
+                rating: 4.6,
+                price: "₹32,499",
+                oldPrice: "₹45,000",
+                dealText: "Limited Time Offer",
+              ),
+
+              ProductCard(
+                image: "assets/images/sofas12.png",
+                title: "Royal Velvet Tufted Sofa",
+                rating: 4.8,
+                price: "₹54,999",
+                oldPrice: "₹72,000",
+                dealText: "Festival Special",
+              ),
+
+              ProductCard(
+                image: "assets/images/sofas13.png",
+                title: "Heritage Faux-Leather Couch",
+                rating: 4.2,
+                price: "₹28,800",
+                oldPrice: "₹35,500",
+                dealText: "Hot Seller",
               ),
             ],
           ),

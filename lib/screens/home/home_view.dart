@@ -954,6 +954,7 @@ class HomeView extends StatelessWidget {
                                 Get.to(
                                   () => ProductDetailsPage(product: product),
                                 );
+                                // Handle sofa category tap
                               },
                             ),
                             CategoryCard(
@@ -982,6 +983,7 @@ class HomeView extends StatelessWidget {
                                 Get.to(
                                   () => ProductDetailsPage(product: product),
                                 );
+                                // Handle bed category tap
                               },
                             ),
                             CategoryCard(
@@ -1010,6 +1012,7 @@ class HomeView extends StatelessWidget {
                                 Get.to(
                                   () => ProductDetailsPage(product: product),
                                 );
+                                // Handle table category tap
                               },
                             ),
                             CategoryCard(
@@ -1041,6 +1044,9 @@ class HomeView extends StatelessWidget {
                               },
                             ),
 
+                                // Handle chair category tap
+                              },
+                            ),
                             CategoryCard(
                               categoryName: ' reclining Chaise Longue',
                               imagePath: 'assets/images/sofaC5.png',
@@ -1067,6 +1073,7 @@ class HomeView extends StatelessWidget {
                                 Get.to(
                                   () => ProductDetailsPage(product: product),
                                 );
+                                // Handle cabinet category tap
                               },
                             ),
                             CategoryCard(
@@ -2349,6 +2356,17 @@ void _navigateToCategory(String category) {
     Get.toNamed('/product', arguments: {'category': 'lighting'});
   } else {
     // Default: navigate to sofa screen
+    Get.toNamed('/table', arguments: {'category': 'table'});
+  } else if (categoryLower.contains('bed')) {
+    Get.toNamed('/beds', arguments: {'category': 'beds'});
+  } else if (categoryLower.contains('storage')) {
+    Get.toNamed('/storage', arguments: {'category': 'storage'});
+  } else if (categoryLower.contains('chair')) {
+    Get.toNamed('/chair', arguments: {'category': 'chair'});
+  } else if (categoryLower.contains('lighting') ||
+      categoryLower.contains('lamp')) {
+    Get.toNamed('/lighting', arguments: {'category': 'lighting'});
+  } else {
     Get.toNamed('/home');
   }
 }

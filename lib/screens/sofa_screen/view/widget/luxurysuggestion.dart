@@ -10,6 +10,8 @@ class LuxurySuggestedSection extends StatelessWidget {
       const ProductCard(
         image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
         name: "Italian Leather Sofa",
+        image: "assets/images/sofas20.png",
+        title: "Milan Tan Executive Sofa",
         rating: 4.8,
         price: "₹1,25,999",
         oldPrice: "1,59,999",
@@ -59,6 +61,48 @@ class LuxurySuggestedSection extends StatelessWidget {
         price: "₹99,999",
         oldPrice: "1,29,999",
         dealText: "Mega Offer",
+        image: "assets/images/sofas21.png",
+        title: "Tuscan Obsidian Leather Sofa",
+        rating: 4.9,
+        price: "₹1,32,000",
+        oldPrice: "1,65,000",
+        dealText: "Exclusive Offer",
+      ),
+
+      const ProductCard(
+        image: "assets/images/sofas22.png",
+        title: "Florence Cocoa L-Sofa",
+        rating: 4.7,
+        price: "₹1,85,999",
+        oldPrice: "2,10,000",
+        dealText: "Premium Deal",
+      ),
+
+      const ProductCard(
+        image: "assets/images/sofas23.png",
+        title: "Venice Slate Italian Leather",
+        rating: 4.8,
+        price: "₹1,15,500",
+        oldPrice: "1,45,000",
+        dealText: "Luxury Deal",
+      ),
+
+      const ProductCard(
+        image: "assets/images/sofas24.png",
+        title: "Roma Vintage Cognac Sofa",
+        rating: 4.6,
+        price: "₹1,09,999",
+        oldPrice: "1,39,999",
+        dealText: "Vintage Series",
+      ),
+
+      const ProductCard(
+        image: "assets/images/sofas25.png",
+        title: "Napoli Pure White Leather",
+        rating: 4.9,
+        price: "₹1,45,000",
+        oldPrice: "1,75,000",
+        dealText: "Elite Collection",
       ),
     ];
 
@@ -93,6 +137,9 @@ class LuxurySuggestedSection extends StatelessWidget {
               crossAxisSpacing: 8,
               mainAxisSpacing: 12,
               childAspectRatio: 0.65,
+              crossAxisSpacing: 3,
+              mainAxisSpacing: 12,
+              childAspectRatio: 0.57,
             ),
             itemBuilder: (context, index) {
               return products[index];

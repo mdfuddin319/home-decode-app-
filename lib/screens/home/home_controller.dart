@@ -40,6 +40,7 @@ class HomeController extends BaseController {
       "Lighting",
       "Beds",
       "Tables",
+      "Chairs",
       "Storage",
     ]);
   }
