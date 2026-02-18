@@ -9,6 +9,7 @@ class SuggestedSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // 🔹 Heading Row
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
@@ -28,6 +29,7 @@ class SuggestedSection extends StatelessWidget {
 
         const SizedBox(height: 12),
 
+        // 🔹 Product List
         // Product List
         SizedBox(
           height: 240,
@@ -36,6 +38,33 @@ class SuggestedSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             children: const [
               ProductCard(
+                image:
+                    "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+                name: "Moto G96 5G",
+                rating: 4.4,
+                price: "₹17,999",
+                oldPrice: "20,999",
+                dealText: "Super Deals",
+              ),
+
+              ProductCard(
+                image:
+                    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+                name: "OPPO Reno",
+                rating: 4.6,
+                price: "₹45,999",
+                oldPrice: "49,999",
+                dealText: "Limited Offer",
+              ),
+
+              ProductCard(
+                image:
+                    "https://images.unsplash.com/photo-1580910051074-3eb694886505",
+                name: "Vivo T3 Lite",
+                rating: 4.4,
+                price: "₹11,499",
+                oldPrice: "15,499",
+                dealText: "Hot Deal",
                 image: "assets/images/sofas11.png",
                 title: "Everett Fabric 3-Seater Sofa",
                 rating: 4.6,

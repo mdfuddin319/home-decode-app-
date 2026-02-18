@@ -2,9 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../core/models/product_model.dart';
 import '../../core/values/app_strings.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/text_styles.dart';
+import '../product_details_page/view/productDetailsPage.dart';
 import 'home_controller.dart';
 import 'widget/feature_product.dart';
 import 'widget/category_card.dart';
@@ -930,6 +932,28 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Camel Hump',
                               imagePath: 'assets/images/sofaC1.png',
                               onTap: () {
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Modern Loveseat Sofa',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Sofa',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                                 // Handle sofa category tap
                               },
                             ),
@@ -937,6 +961,28 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Leather upholstery',
                               imagePath: 'assets/images/sofaC2.png',
                               onTap: () {
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Leather Upholstery Sofa',
+                                  price: 17599,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Sofa',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                                 // Handle bed category tap
                               },
                             ),
@@ -944,6 +990,28 @@ class HomeView extends StatelessWidget {
                               categoryName: ' geometric sofa',
                               imagePath: 'assets/images/sofaC3.png',
                               onTap: () {
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Geometric Sofa',
+                                  price: 19999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Sofa',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                                 // Handle table category tap
                               },
                             ),
@@ -951,6 +1019,31 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Loveseat',
                               imagePath: 'assets/images/sofaC4.png',
                               onTap: () {
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Modern Loveseat Sofa',
+                                  price: 29990,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Sofa',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
+                              },
+                            ),
+
                                 // Handle chair category tap
                               },
                             ),
@@ -958,6 +1051,28 @@ class HomeView extends StatelessWidget {
                               categoryName: ' reclining Chaise Longue',
                               imagePath: 'assets/images/sofaC5.png',
                               onTap: () {
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Reclining Chaise Longue',
+                                  price: 16999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Sofa',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                                 // Handle cabinet category tap
                               },
                             ),
@@ -965,7 +1080,28 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Cabriole',
                               imagePath: 'assets/images/sofaC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Cabriole Sofa',
+                                  price: 13999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Sofa',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                           ],
@@ -990,42 +1126,168 @@ class HomeView extends StatelessWidget {
                               categoryName: ' Chandeliers',
                               imagePath: 'assets/images/light1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Chandelier',
+                                  price: 17599,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Lighting',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Light Room',
                               imagePath: 'assets/images/sofatwo.png',
                               onTap: () {
-                                // Handle bed category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Light Room',
+                                  price: 18799,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Lighting',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Ceiling lights',
                               imagePath: 'assets/images/light3.png',
                               onTap: () {
-                                // Handle table category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Ceiling lights',
+                                  price: 12999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Lighting',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Pot lights',
                               imagePath: 'assets/images/light4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Pot lights',
+                                  price: 10999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Lighting',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Desk lamps',
                               imagePath: 'assets/images/light5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Desk lamps',
+                                  price: 13999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Lighting',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'LED strip',
                               imagePath: 'assets/images/light6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'LED strip',
+                                  price: 10599,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Lighting',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                           ],
@@ -1050,42 +1312,168 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Upholstered cocoon',
                               imagePath: 'assets/images/BedC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Upholstered cocoon',
+                                  price: 17599,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Beds',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Canopy & Four-Poster Beds',
                               imagePath: 'assets/images/BedC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Canopy & Four-Poster Beds',
+                                  price: 19999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Beds',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Hydraulic Storage Beds',
                               imagePath: 'assets/images/BedC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Hydraulic Storage Beds',
+                                  price: 175999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Beds',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Floating Beds',
                               imagePath: 'assets/images/BedC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Floating Beds',
+                                  price: 129990,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Beds',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Solid Wood Frames',
                               imagePath: 'assets/images/BedC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Solid Wood Frames',
+                                  price: 17999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Beds',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Smart Bases',
                               imagePath: 'assets/images/BedC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Smart Bases',
+                                  price: 19999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Beds',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                           ],
@@ -1110,42 +1498,168 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Organically-Shaped Tables',
                               imagePath: 'assets/images/TableC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Organically-Shaped Tables',
+                                  price: 17999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Tables',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Live Edge & Resin',
                               imagePath: 'assets/images/TableC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Live Edge & Resin',
+                                  price: 199899,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Tables',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Waterfall Consoles',
                               imagePath: 'assets/images/TableC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Waterfall Consoles',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Tables',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Slim floating Consoles',
                               imagePath: 'assets/images/TableC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Slim floating Consoles',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Tables',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'C-Tables',
                               imagePath: 'assets/images/TableC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'C-Tables',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Tables',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Monolithic Stone Plinths',
                               imagePath: 'assets/images/TableC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Monolithic Stone Plinths',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Tables',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                           ],
@@ -1170,42 +1684,168 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Curved Swivel Chairs',
                               imagePath: 'assets/images/ChairC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Curved Swivel Chairs',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Chairs',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Wingback Shelter Chairs',
                               imagePath: 'assets/images/ChairC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Wingback Shelter Chairs',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Chairs',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Active-Sitting Stools',
                               imagePath: 'assets/images/ChairC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Active-Sitting Stools',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Chairs',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Mesh Performance Chairs',
                               imagePath: 'assets/images/ChairC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Mesh Performance Chairs',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Chairs',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Eames-Style Lounge ',
                               imagePath: 'assets/images/ChairC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Eames-Style Lounge',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Chairs',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Pod Chairs',
                               imagePath: 'assets/images/ChairC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Pod Chairs',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Chairs',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                           ],
@@ -1230,42 +1870,168 @@ class HomeView extends StatelessWidget {
                               categoryName: 'Hidden Wardrobes',
                               imagePath: 'assets/images/StoreC1.png',
                               onTap: () {
-                                // Handle sofa category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Hidden Wardrobes',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Storage',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Pull-Out Pantry',
                               imagePath: 'assets/images/StoreC2.png',
                               onTap: () {
-                                // Handle bed category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Pull-Out Pantry',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Storage',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Under-Stair Drawer',
                               imagePath: 'assets/images/StoreC3.png',
                               onTap: () {
-                                // Handle table category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Under-Stair Drawer',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Storage',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Magnetic Backsplash Racks',
                               imagePath: 'assets/images/StoreC4.png',
                               onTap: () {
-                                // Handle chair category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Magnetic Backsplash Racks',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Storage',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Lift-up TV',
                               imagePath: 'assets/images/StoreC5.png',
                               onTap: () {
-                                // Handle cabinet category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Lift-up TV',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Storage',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                             CategoryCard(
                               categoryName: 'Charging Station Side',
                               imagePath: 'assets/images/StoreC6.png',
                               onTap: () {
-                                // Handle shelf category tap
+                                final product = Product(
+                                  id: 4,
+                                  name: 'Charging Station Side',
+                                  price: 18999,
+                                  image:
+                                      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                  rating: 4.6,
+                                  reviews: 120,
+                                  description:
+                                      'Elegant and compact loveseat perfect for small spaces.',
+                                  category: 'Storage',
+                                  brand: 'Homely Touch',
+                                  dimensions: '145 x 85 x 90 cm',
+                                  images: [
+                                    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc',
+                                    'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
+                                  ],
+                                );
+
+                                Get.to(
+                                  () => ProductDetailsPage(product: product),
+                                );
                               },
                             ),
                           ],
@@ -1319,70 +2085,68 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _navItem({
-    required IconData icon,
-    required String label,
-    required int index,
-  }) {
-    final isActive = Get.find<HomeController>().currentIndex.value == index;
+Widget _navItem({
+  required IconData icon,
+  required String label,
+  required int index,
+}) {
+  final isActive = Get.find<HomeController>().currentIndex.value == index;
 
-    return GestureDetector(
-      onTap: () {
-        final controller = Get.find<HomeController>();
-        controller.changePageIndex(index);
+  return GestureDetector(
+    onTap: () {
+      final controller = Get.find<HomeController>();
+      controller.changePageIndex(index);
 
-        // Navigate to the corresponding screen
-        switch (index) {
-          case 0:
-            Get.offAllNamed('/home');
-            break;
-          case 1:
-            Get.toNamed('/product');
-            break;
-          case 2:
-            Get.toNamed('/wishlist');
-            break;
-          case 3:
-            Get.toNamed('/profile');
-            break;
-        }
-      },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 250),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-        decoration: BoxDecoration(
-          color: isActive
-              ? AppColors.primaryColor.withOpacity(0.12)
-              : Colors.transparent,
-          borderRadius: BorderRadius.circular(18),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(
-              icon,
-              size: 24,
+      // Navigate to the corresponding screen
+      switch (index) {
+        case 0:
+          Get.offAllNamed('/home');
+          break;
+        case 1:
+          Get.toNamed('/product');
+          break;
+        case 2:
+          Get.toNamed('/wishlist');
+          break;
+        case 3:
+          Get.toNamed('/profile');
+          break;
+      }
+    },
+    child: AnimatedContainer(
+      duration: const Duration(milliseconds: 250),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: isActive
+            ? AppColors.primaryColor.withOpacity(0.12)
+            : Colors.transparent,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 24,
+            color: isActive ? AppColors.primaryColor : AppColors.textColorHint,
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
               color: isActive
                   ? AppColors.primaryColor
                   : AppColors.textColorHint,
             ),
-            const SizedBox(height: 2),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
-                color: isActive
-                    ? AppColors.primaryColor
-                    : AppColors.textColorHint,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
 
 /// Auto-sliding promotional carousel card builder
@@ -1573,12 +2337,25 @@ IconData _getCategoryIcon(String category) {
   return Icons.chair;
 }
 
+/// Navigate to category-specific screen
 void _navigateToCategory(String category) {
   final categoryLower = category.toLowerCase();
 
   if (categoryLower.contains('sofa')) {
     Get.toNamed('/sofa');
   } else if (categoryLower.contains('table')) {
+    Get.toNamed('/table', arguments: {'category': 'lighting'});
+  } else if (categoryLower.contains('chair')) {
+    Get.toNamed('/sofa'); // Navigate to sofa as fallback
+  } else if (categoryLower.contains('bed')) {
+    Get.toNamed('/product', arguments: {'category': 'beds'});
+  } else if (categoryLower.contains('storage')) {
+    Get.toNamed('/product', arguments: {'category': 'storage'});
+  } else if (categoryLower.contains('lighting') ||
+      categoryLower.contains('lamp')) {
+    Get.toNamed('/product', arguments: {'category': 'lighting'});
+  } else {
+    // Default: navigate to sofa screen
     Get.toNamed('/table', arguments: {'category': 'table'});
   } else if (categoryLower.contains('bed')) {
     Get.toNamed('/beds', arguments: {'category': 'beds'});

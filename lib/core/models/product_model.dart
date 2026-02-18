@@ -4,6 +4,7 @@ class Product {
   final double price;
   final String image;
   final double rating;
+  final int reviews;
   final String description;
   final String category;
   final bool isFavorite;
@@ -17,6 +18,7 @@ class Product {
     required this.price,
     required this.image,
     required this.rating,
+    required this.reviews,
     required this.description,
     this.category = '',
     this.isFavorite = false,
@@ -32,6 +34,7 @@ class Product {
       price: (json['price'] ?? 0.0).toDouble(),
       image: json['image'] ?? '',
       rating: (json['rating'] ?? 0.0).toDouble(),
+      reviews: json['reviews'] ?? 0,
       description: json['description'] ?? '',
       category: json['category'] ?? '',
       isFavorite: json['is_favorite'] ?? false,
@@ -48,6 +51,7 @@ class Product {
       'price': price,
       'image': image,
       'rating': rating,
+      'reviews': reviews,
       'description': description,
       'category': category,
       'is_favorite': isFavorite,

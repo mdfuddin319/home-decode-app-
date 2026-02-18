@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:home_decor_app/screens/onboarding/onboarding_binding.dart';
+import 'package:home_decor_app/screens/onboarding/onboarding_view.dart';
 import 'package:home_decor_app/screens/lighting_screen/binding/lighting_binding.dart';
 import 'package:home_decor_app/screens/lighting_screen/view/lighting_view.dart';
 import 'package:home_decor_app/screens/onboarding/onboarding_binding.dart';
@@ -15,6 +17,10 @@ import '../screens/cart/cart_view.dart';
 import '../screens/cart/cart_binding.dart';
 import '../screens/profile/binding/profile_binding.dart';
 import '../screens/profile/view/profile_view.dart';
+import '../screens/sofa_screen/binding/sofa_binding.dart';
+import '../screens/sofa_screen/view/sofa_screen.dart';
+import '../screens/table_screen/binding/table_binding.dart';
+import '../screens/table_screen/view/table_screen.dart';
 import '../screens/storage_screen/binding/storage_binding.dart';
 import '../screens/storage_screen/view/storage_view.dart';
 import '../screens/table_screen/binding/table_binding.dart';
@@ -56,14 +62,24 @@ abstract class AppPages {
       binding: CartBinding(),
     ),
     GetPage(
+      name: AppRoutes.sofa,
+      page: () => const SofaView(),
+      binding: SofaBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.table,
+      page: () => const TableView(),
+      binding: TableBinding(),
+    ),
+    GetPage(
       name: AppRoutes.wishlist,
       page: () => const WishlistView(),
       binding: WishlistBinding(),
     ),
     GetPage(
-      name: AppRoutes.sofa,
-      page: () => const SofaView(),
-      binding: SofaBinding(),
+      name: AppRoutes.profile,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
     GetPage(
       name: AppRoutes.table,

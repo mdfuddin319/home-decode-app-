@@ -8,6 +8,8 @@ class LuxurySuggestedSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final products = [
       const ProductCard(
+        image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+        name: "Italian Leather Sofa",
         image: "assets/images/sofas20.png",
         title: "Milan Tan Executive Sofa",
         rating: 4.8,
@@ -17,6 +19,48 @@ class LuxurySuggestedSection extends StatelessWidget {
       ),
 
       const ProductCard(
+        image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
+        name: "Modern Velvet Sofa",
+        rating: 4.6,
+        price: "₹89,999",
+        oldPrice: "1,09,999",
+        dealText: "Limited Offer",
+      ),
+
+      const ProductCard(
+        image: "https://images.unsplash.com/photo-1493666438817-866a91353ca9",
+        name: "Premium Corner Sofa",
+        rating: 4.7,
+        price: "₹1,45,999",
+        oldPrice: "1,79,999",
+        dealText: "Best Seller",
+      ),
+
+      const ProductCard(
+        image: "https://images.unsplash.com/photo-1484101403633-562f891dc89a",
+        name: "Minimalist Grey Sofa",
+        rating: 4.5,
+        price: "₹74,999",
+        oldPrice: "94,999",
+        dealText: "Hot Deal",
+      ),
+
+      const ProductCard(
+        image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
+        name: "Luxury Chesterfield",
+        rating: 4.9,
+        price: "₹1,95,999",
+        oldPrice: "2,29,999",
+        dealText: "Premium Pick",
+      ),
+
+      const ProductCard(
+        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb3",
+        name: "Elegant Beige Sofa",
+        rating: 4.6,
+        price: "₹99,999",
+        oldPrice: "1,29,999",
+        dealText: "Mega Offer",
         image: "assets/images/sofas21.png",
         title: "Tuscan Obsidian Leather Sofa",
         rating: 4.9,
@@ -90,6 +134,9 @@ class LuxurySuggestedSection extends StatelessWidget {
             itemCount: products.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3, // ⭐ 3 items per row
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 12,
+              childAspectRatio: 0.65,
               crossAxisSpacing: 3,
               mainAxisSpacing: 12,
               childAspectRatio: 0.57,
