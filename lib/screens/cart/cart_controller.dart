@@ -22,7 +22,6 @@ class CartController extends BaseController {
   }
 
   void loadCart() {
-    // Load cart items from storage or initialize empty
     cartItems.clear();
     totalPrice.value = 0.0;
   }

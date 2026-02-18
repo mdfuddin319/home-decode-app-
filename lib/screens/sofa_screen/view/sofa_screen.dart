@@ -46,8 +46,7 @@ class SofaView extends StatelessWidget {
             _buildFilterChips(controller),
 
             const SizedBox(height: 10),
-            // Featured Products
-            // ⭐ Banner Slider
+
             SizedBox(
               height: 160,
               child: PageView.builder(
@@ -65,7 +64,7 @@ class SofaView extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
-                          image: NetworkImage(banner["image"]!),
+                          image: AssetImage(banner["image"]!),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -108,7 +107,7 @@ class SofaView extends StatelessWidget {
             const SizedBox(height: 20),
 
             const ModernSuggestedSection(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
 
             const LuxurySuggestedSection(),
           ],

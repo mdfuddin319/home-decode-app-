@@ -1319,68 +1319,70 @@ class HomeView extends StatelessWidget {
       ),
     );
   }
-}
 
-Widget _navItem({
-  required IconData icon,
-  required String label,
-  required int index,
-}) {
-  final isActive = Get.find<HomeController>().currentIndex.value == index;
+  Widget _navItem({
+    required IconData icon,
+    required String label,
+    required int index,
+  }) {
+    final isActive = Get.find<HomeController>().currentIndex.value == index;
 
-  return GestureDetector(
-    onTap: () {
-      final controller = Get.find<HomeController>();
-      controller.changePageIndex(index);
+    return GestureDetector(
+      onTap: () {
+        final controller = Get.find<HomeController>();
+        controller.changePageIndex(index);
 
-      // Navigate to the corresponding screen
-      switch (index) {
-        case 0:
-          Get.offAllNamed('/home');
-          break;
-        case 1:
-          Get.toNamed('/product');
-          break;
-        case 2:
-          Get.toNamed('/wishlist');
-          break;
-        case 3:
-          Get.toNamed('/profile');
-          break;
-      }
-    },
-    child: AnimatedContainer(
-      duration: const Duration(milliseconds: 250),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      decoration: BoxDecoration(
-        color: isActive
-            ? AppColors.primaryColor.withOpacity(0.12)
-            : Colors.transparent,
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            size: 24,
-            color: isActive ? AppColors.primaryColor : AppColors.textColorHint,
-          ),
-          const SizedBox(height: 2),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 11,
-              fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+        // Navigate to the corresponding screen
+        switch (index) {
+          case 0:
+            Get.offAllNamed('/home');
+            break;
+          case 1:
+            Get.toNamed('/product');
+            break;
+          case 2:
+            Get.toNamed('/wishlist');
+            break;
+          case 3:
+            Get.toNamed('/profile');
+            break;
+        }
+      },
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 250),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+        decoration: BoxDecoration(
+          color: isActive
+              ? AppColors.primaryColor.withOpacity(0.12)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 24,
               color: isActive
                   ? AppColors.primaryColor
                   : AppColors.textColorHint,
             ),
-          ),
-        ],
+            const SizedBox(height: 2),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+                color: isActive
+                    ? AppColors.primaryColor
+                    : AppColors.textColorHint,
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 /// Auto-sliding promotional carousel card builder
@@ -1571,25 +1573,23 @@ IconData _getCategoryIcon(String category) {
   return Icons.chair;
 }
 
-/// Navigate to category-specific screen
 void _navigateToCategory(String category) {
   final categoryLower = category.toLowerCase();
 
   if (categoryLower.contains('sofa')) {
     Get.toNamed('/sofa');
   } else if (categoryLower.contains('table')) {
-    Get.toNamed('/table', arguments: {'category': 'lighting'});
-  } else if (categoryLower.contains('chair')) {
-    Get.toNamed('/sofa'); // Navigate to sofa as fallback
+    Get.toNamed('/table', arguments: {'category': 'table'});
   } else if (categoryLower.contains('bed')) {
-    Get.toNamed('/product', arguments: {'category': 'beds'});
+    Get.toNamed('/beds', arguments: {'category': 'beds'});
   } else if (categoryLower.contains('storage')) {
-    Get.toNamed('/product', arguments: {'category': 'storage'});
+    Get.toNamed('/storage', arguments: {'category': 'storage'});
+  } else if (categoryLower.contains('chair')) {
+    Get.toNamed('/chair', arguments: {'category': 'chair'});
   } else if (categoryLower.contains('lighting') ||
       categoryLower.contains('lamp')) {
-    Get.toNamed('/product', arguments: {'category': 'lighting'});
+    Get.toNamed('/lighting', arguments: {'category': 'lighting'});
   } else {
-    // Default: navigate to sofa screen
     Get.toNamed('/home');
   }
 }

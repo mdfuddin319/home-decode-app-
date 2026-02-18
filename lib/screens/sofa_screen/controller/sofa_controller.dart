@@ -39,17 +39,17 @@ class SofaController extends BaseController {
 
   final List<Map<String, String>> featureBanners = [
     {
-      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
+      "image": "assets/images/Luxurysofa.png",
       "title": "Luxury Comfort",
       "desc": "Experience premium quality sofas",
     },
     {
-      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      "image": "assets/images/modernsofa.png",
       "title": "Modern Design",
       "desc": "Stylish sofas for your home",
     },
     {
-      "image": "https://images.unsplash.com/photo-1616627981455-8b1a5d9e6f2b",
+      "image": "assets/images/newmodernsofa.png",
       "title": "Best Deals",
       "desc": "Grab sofas at great prices",
     },
@@ -104,7 +104,7 @@ class SofaController extends BaseController {
 
   void applyFilter(int index) {
     selectedFilter.value = index;
-    loadSofas(); // Reload with filter
+    loadSofas();
   }
 
   void applySort(String sortOption) {
@@ -124,7 +124,6 @@ class SofaController extends BaseController {
         sofaProducts.sort((a, b) => b.id.compareTo(a.id));
         break;
       default:
-        // Popular - keep original order
         break;
     }
   }
