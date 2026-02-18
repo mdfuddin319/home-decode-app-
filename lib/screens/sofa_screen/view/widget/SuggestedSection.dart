@@ -39,7 +39,7 @@ class SuggestedSection extends StatelessWidget {
               ProductCard(
                 image:
                     "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
-                title: "Moto G96 5G",
+                name: "Moto G96 5G",
                 rating: 4.4,
                 price: "₹17,999",
                 oldPrice: "20,999",
@@ -49,7 +49,7 @@ class SuggestedSection extends StatelessWidget {
               ProductCard(
                 image:
                     "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-                title: "OPPO Reno",
+                name: "OPPO Reno",
                 rating: 4.6,
                 price: "₹45,999",
                 oldPrice: "49,999",
@@ -59,7 +59,7 @@ class SuggestedSection extends StatelessWidget {
               ProductCard(
                 image:
                     "https://images.unsplash.com/photo-1580910051074-3eb694886505",
-                title: "Vivo T3 Lite",
+                name: "Vivo T3 Lite",
                 rating: 4.4,
                 price: "₹11,499",
                 oldPrice: "15,499",

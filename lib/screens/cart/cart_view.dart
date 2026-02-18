@@ -83,6 +83,7 @@ class CartView extends StatelessWidget {
                                   children: [
                                     Text(
                                       item.product.name,
+                                      // item.product.title,
                                       style: TextStyles.titleMedium.copyWith(
                                         fontWeight: FontWeight.w600,
                                       ),

@@ -9,7 +9,7 @@ class LuxurySuggestedSection extends StatelessWidget {
     final products = [
       const ProductCard(
         image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc",
-        title: "Italian Leather Sofa",
+        name: "Italian Leather Sofa",
         rating: 4.8,
         price: "₹1,25,999",
         oldPrice: "1,59,999",
@@ -18,7 +18,7 @@ class LuxurySuggestedSection extends StatelessWidget {
 
       const ProductCard(
         image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
-        title: "Modern Velvet Sofa",
+        name: "Modern Velvet Sofa",
         rating: 4.6,
         price: "₹89,999",
         oldPrice: "1,09,999",
@@ -27,7 +27,7 @@ class LuxurySuggestedSection extends StatelessWidget {
 
       const ProductCard(
         image: "https://images.unsplash.com/photo-1493666438817-866a91353ca9",
-        title: "Premium Corner Sofa",
+        name: "Premium Corner Sofa",
         rating: 4.7,
         price: "₹1,45,999",
         oldPrice: "1,79,999",
@@ -36,7 +36,7 @@ class LuxurySuggestedSection extends StatelessWidget {
 
       const ProductCard(
         image: "https://images.unsplash.com/photo-1484101403633-562f891dc89a",
-        title: "Minimalist Grey Sofa",
+        name: "Minimalist Grey Sofa",
         rating: 4.5,
         price: "₹74,999",
         oldPrice: "94,999",
@@ -45,7 +45,7 @@ class LuxurySuggestedSection extends StatelessWidget {
 
       const ProductCard(
         image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
-        title: "Luxury Chesterfield",
+        name: "Luxury Chesterfield",
         rating: 4.9,
         price: "₹1,95,999",
         oldPrice: "2,29,999",
@@ -54,7 +54,7 @@ class LuxurySuggestedSection extends StatelessWidget {
 
       const ProductCard(
         image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb3",
-        title: "Elegant Beige Sofa",
+        name: "Elegant Beige Sofa",
         rating: 4.6,
         price: "₹99,999",
         oldPrice: "1,29,999",

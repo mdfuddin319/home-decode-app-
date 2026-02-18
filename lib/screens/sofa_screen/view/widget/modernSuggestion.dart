@@ -8,8 +8,8 @@ class ModernSuggestedSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final products = [
       const ProductCard(
-        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
-        title: "Moto G96 5G",
+        image: "assets/images/sofaC1.png",
+        name: "Moto G96 5G",
         rating: 4.4,
         price: "₹17,999",
         oldPrice: "20,999",
@@ -17,7 +17,7 @@ class ModernSuggestedSection extends StatelessWidget {
       ),
       const ProductCard(
         image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-        title: "OPPO Reno",
+        name: "OPPO Reno",
         rating: 4.6,
         price: "₹45,999",
         oldPrice: "49,999",
@@ -25,7 +25,7 @@ class ModernSuggestedSection extends StatelessWidget {
       ),
       const ProductCard(
         image: "https://images.unsplash.com/photo-1580910051074-3eb694886505",
-        title: "Vivo T3 Lite",
+        name: "Vivo T3 Lite",
         rating: 4.4,
         price: "₹11,499",
         oldPrice: "15,499",
@@ -33,7 +33,7 @@ class ModernSuggestedSection extends StatelessWidget {
       ),
       const ProductCard(
         image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
-        title: "Realme Narzo",
+        name: "Realme Narzo",
         rating: 4.2,
         price: "₹13,999",
         oldPrice: "16,999",
@@ -41,7 +41,7 @@ class ModernSuggestedSection extends StatelessWidget {
       ),
       const ProductCard(
         image: "https://images.unsplash.com/photo-1510557880182-3c5f9b7f2c6c",
-        title: "iQOO Neo",
+        name: "iQOO Neo",
         rating: 4.5,
         price: "₹29,999",
         oldPrice: "34,999",
@@ -49,7 +49,7 @@ class ModernSuggestedSection extends StatelessWidget {
       ),
       const ProductCard(
         image: "https://images.unsplash.com/photo-1585386959984-a415522316f3",
-        title: "Samsung Galaxy",
+        name: "Samsung Galaxy",
         rating: 4.7,
         price: "₹55,999",
         oldPrice: "62,999",
